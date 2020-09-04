@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Songs</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>Not feeling appy</string>
+			<key>mediaURL</key>
+			<string></string>
+			<key>coverArtURL</key>
+			<string>art1</string>
+			<key>duration</key>
+			<integer>120</integer>
+			<key>artist</key>
+			<string>The Dev Tones</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>JSON was my friend</string>
+			<key>mediaURL</key>
+			<string></string>
+			<key>coverArtURL</key>
+			<string>art2</string>
+			<key>duration</key>
+			<integer>65</integer>
+			<key>artist</key>
+			<string>Parsermonius</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>You are my core data</string>
+			<key>mediaURL</key>
+			<string></string>
+			<key>coverArtURL</key>
+			<string>art3</string>
+			<key>duration</key>
+			<integer>181</integer>
+			<key>artist</key>
+			<string>Sequel Light</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Never submit</string>
+			<key>mediaURL</key>
+			<string></string>
+			<key>coverArtURL</key>
+			<string>art4</string>
+			<key>duration</key>
+			<integer>144</integer>
+			<key>artist</key>
+			<string>Provisioning Profiles</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>I cant be your type</string>
+			<key>mediaURL</key>
+			<string></string>
+			<key>coverArtURL</key>
+			<string>art5</string>
+			<key>duration</key>
+			<integer>96</integer>
+			<key>artist</key>
+			<string>Swift Four</string>
+		</dict>
+	</array>
+</dict>
+</plist>

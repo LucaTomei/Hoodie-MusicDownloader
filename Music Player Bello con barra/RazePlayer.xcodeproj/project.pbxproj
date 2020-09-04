@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18BF3089200D663200883F91 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BF3088200D663200883F91 /* LaunchScreen.xib */; };
+		AD0CBF351FBEF8F20012F4DD /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CBF341FBEF8F20012F4DD /* Song.swift */; };
+		AD0CBF361FBF07020012F4DD /* SongCollectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4BB29A1FBDB9C90044927F /* SongCollectionDatasource.swift */; };
+		AD0CBF381FBF0B390012F4DD /* MiniPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CBF371FBF0B390012F4DD /* MiniPlayerViewController.swift */; };
+		AD0CBF3D1FBF0F2D0012F4DD /* art5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD0CBF391FBF0F2C0012F4DD /* art5.jpg */; };
+		AD0CBF3E1FBF0F2D0012F4DD /* art3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD0CBF3A1FBF0F2C0012F4DD /* art3.jpg */; };
+		AD0CBF3F1FBF0F2D0012F4DD /* art2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD0CBF3B1FBF0F2D0012F4DD /* art2.jpg */; };
+		AD0CBF401FBF0F2D0012F4DD /* art4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD0CBF3C1FBF0F2D0012F4DD /* art4.jpg */; };
+		AD0CBF421FBF19B20012F4DD /* Song+ImageLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CBF411FBF19B20012F4DD /* Song+ImageLoad.swift */; };
+		AD304A051FBDA77E007A7026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD304A041FBDA77E007A7026 /* AppDelegate.swift */; };
+		AD304A071FBDA77E007A7026 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD304A061FBDA77E007A7026 /* SongViewController.swift */; };
+		AD304A0A1FBDA77E007A7026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD304A081FBDA77E007A7026 /* Main.storyboard */; };
+		AD304A0F1FBDA77E007A7026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD304A0E1FBDA77E007A7026 /* Assets.xcassets */; };
+		AD304A1A1FBDAA82007A7026 /* DataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD304A191FBDAA82007A7026 /* DataStack.swift */; };
+		AD304A1C1FBDAC31007A7026 /* SongBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD304A1B1FBDAC31007A7026 /* SongBuilder.swift */; };
+		AD304A1E1FBDB088007A7026 /* CannedSongs.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD304A1D1FBDB088007A7026 /* CannedSongs.plist */; };
+		AD304A201FBDB5B2007A7026 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD304A1F1FBDB5B2007A7026 /* SongCell.swift */; };
+		AD4BB2991FBDB9410044927F /* art1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD4BB2981FBDB9410044927F /* art1.jpg */; };
+		AD7C29461FCDC65F00B44AD6 /* SongPlayControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C29451FCDC65E00B44AD6 /* SongPlayControlViewController.swift */; };
+		AD8322151FC59DD700B67CAF /* UIView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8322141FC59DD700B67CAF /* UIView+Snapshot.swift */; };
+		AD8322181FC6FBAF00B67CAF /* MaxiSongCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8322171FC6FBAF00B67CAF /* MaxiSongCardViewController.swift */; };
+		ADE062621FD01D6500EFBC66 /* SongSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE062611FD01D6500EFBC66 /* SongSubscriber.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		18BF3088200D663200883F91 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		AD0CBF341FBEF8F20012F4DD /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		AD0CBF371FBF0B390012F4DD /* MiniPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerViewController.swift; sourceTree = "<group>"; };
+		AD0CBF391FBF0F2C0012F4DD /* art5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = art5.jpg; sourceTree = "<group>"; };
+		AD0CBF3A1FBF0F2C0012F4DD /* art3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = art3.jpg; sourceTree = "<group>"; };
+		AD0CBF3B1FBF0F2D0012F4DD /* art2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = art2.jpg; sourceTree = "<group>"; };
+		AD0CBF3C1FBF0F2D0012F4DD /* art4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = art4.jpg; sourceTree = "<group>"; };
+		AD0CBF411FBF19B20012F4DD /* Song+ImageLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+ImageLoad.swift"; sourceTree = "<group>"; };
+		AD304A011FBDA77E007A7026 /* RazePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RazePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD304A041FBDA77E007A7026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AD304A061FBDA77E007A7026 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
+		AD304A091FBDA77E007A7026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AD304A0E1FBDA77E007A7026 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AD304A131FBDA77E007A7026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD304A191FBDAA82007A7026 /* DataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStack.swift; sourceTree = "<group>"; };
+		AD304A1B1FBDAC31007A7026 /* SongBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBuilder.swift; sourceTree = "<group>"; };
+		AD304A1D1FBDB088007A7026 /* CannedSongs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CannedSongs.plist; sourceTree = "<group>"; };
+		AD304A1F1FBDB5B2007A7026 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
+		AD4BB2981FBDB9410044927F /* art1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = art1.jpg; sourceTree = "<group>"; };
+		AD4BB29A1FBDB9C90044927F /* SongCollectionDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCollectionDatasource.swift; sourceTree = "<group>"; };
+		AD7C29451FCDC65E00B44AD6 /* SongPlayControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongPlayControlViewController.swift; sourceTree = "<group>"; };
+		AD8322141FC59DD700B67CAF /* UIView+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Snapshot.swift"; sourceTree = "<group>"; };
+		AD8322171FC6FBAF00B67CAF /* MaxiSongCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxiSongCardViewController.swift; sourceTree = "<group>"; };
+		ADE062611FD01D6500EFBC66 /* SongSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSubscriber.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD3049FE1FBDA77E007A7026 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD3049F81FBDA77E007A7026 = {
+			isa = PBXGroup;
+			children = (
+				AD304A031FBDA77E007A7026 /* RazePlayer */,
+				AD304A021FBDA77E007A7026 /* Products */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+		};
+		AD304A021FBDA77E007A7026 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD304A011FBDA77E007A7026 /* RazePlayer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD304A031FBDA77E007A7026 /* RazePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				AD304A041FBDA77E007A7026 /* AppDelegate.swift */,
+				ADE062631FD0234400EFBC66 /* Model  */,
+				AD4BB29D1FBDBAE10044927F /* Data Layer */,
+				AD4BB29E1FBDBAF20044927F /* View Layer */,
+				AD8322161FC6F58300B67CAF /* Helpers */,
+				AD304A0E1FBDA77E007A7026 /* Assets.xcassets */,
+				18BF3088200D663200883F91 /* LaunchScreen.xib */,
+				AD304A131FBDA77E007A7026 /* Info.plist */,
+			);
+			path = RazePlayer;
+			sourceTree = "<group>";
+		};
+		AD4BB29C1FBDBACA0044927F /* Canned Data */ = {
+			isa = PBXGroup;
+			children = (
+				AD304A1D1FBDB088007A7026 /* CannedSongs.plist */,
+				AD4BB2981FBDB9410044927F /* art1.jpg */,
+				AD0CBF3B1FBF0F2D0012F4DD /* art2.jpg */,
+				AD0CBF3A1FBF0F2C0012F4DD /* art3.jpg */,
+				AD0CBF3C1FBF0F2D0012F4DD /* art4.jpg */,
+				AD0CBF391FBF0F2C0012F4DD /* art5.jpg */,
+			);
+			path = "Canned Data";
+			sourceTree = "<group>";
+		};
+		AD4BB29D1FBDBAE10044927F /* Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+				AD4BB29C1FBDBACA0044927F /* Canned Data */,
+				AD304A191FBDAA82007A7026 /* DataStack.swift */,
+				AD304A1B1FBDAC31007A7026 /* SongBuilder.swift */,
+				AD4BB29A1FBDB9C90044927F /* SongCollectionDatasource.swift */,
+			);
+			path = "Data Layer";
+			sourceTree = "<group>";
+		};
+		AD4BB29E1FBDBAF20044927F /* View Layer */ = {
+			isa = PBXGroup;
+			children = (
+				AD304A081FBDA77E007A7026 /* Main.storyboard */,
+				AD304A061FBDA77E007A7026 /* SongViewController.swift */,
+				AD304A1F1FBDB5B2007A7026 /* SongCell.swift */,
+				AD0CBF371FBF0B390012F4DD /* MiniPlayerViewController.swift */,
+				AD8322171FC6FBAF00B67CAF /* MaxiSongCardViewController.swift */,
+				AD7C29451FCDC65E00B44AD6 /* SongPlayControlViewController.swift */,
+			);
+			path = "View Layer";
+			sourceTree = "<group>";
+		};
+		AD8322161FC6F58300B67CAF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AD0CBF411FBF19B20012F4DD /* Song+ImageLoad.swift */,
+				AD8322141FC59DD700B67CAF /* UIView+Snapshot.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ADE062631FD0234400EFBC66 /* Model  */ = {
+			isa = PBXGroup;
+			children = (
+				AD0CBF341FBEF8F20012F4DD /* Song.swift */,
+				ADE062611FD01D6500EFBC66 /* SongSubscriber.swift */,
+			);
+			path = "Model ";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AD304A001FBDA77E007A7026 /* RazePlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD304A161FBDA77E007A7026 /* Build configuration list for PBXNativeTarget "RazePlayer" */;
+			buildPhases = (
+				AD3049FD1FBDA77E007A7026 /* Sources */,
+				AD3049FE1FBDA77E007A7026 /* Frameworks */,
+				AD3049FF1FBDA77E007A7026 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RazePlayer;
+			productName = RazePlayer;
+			productReference = AD304A011FBDA77E007A7026 /* RazePlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD3049F91FBDA77E007A7026 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Warren Burton";
+				TargetAttributes = {
+					AD304A001FBDA77E007A7026 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AD3049FC1FBDA77E007A7026 /* Build configuration list for PBXProject "RazePlayer" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AD3049F81FBDA77E007A7026;
+			productRefGroup = AD304A021FBDA77E007A7026 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD304A001FBDA77E007A7026 /* RazePlayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD3049FF1FBDA77E007A7026 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD0CBF3F1FBF0F2D0012F4DD /* art2.jpg in Resources */,
+				AD0CBF3D1FBF0F2D0012F4DD /* art5.jpg in Resources */,
+				AD4BB2991FBDB9410044927F /* art1.jpg in Resources */,
+				AD0CBF401FBF0F2D0012F4DD /* art4.jpg in Resources */,
+				AD304A0F1FBDA77E007A7026 /* Assets.xcassets in Resources */,
+				AD0CBF3E1FBF0F2D0012F4DD /* art3.jpg in Resources */,
+				AD304A1E1FBDB088007A7026 /* CannedSongs.plist in Resources */,
+				18BF3089200D663200883F91 /* LaunchScreen.xib in Resources */,
+				AD304A0A1FBDA77E007A7026 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD3049FD1FBDA77E007A7026 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD0CBF351FBEF8F20012F4DD /* Song.swift in Sources */,
+				AD304A071FBDA77E007A7026 /* SongViewController.swift in Sources */,
+				AD0CBF421FBF19B20012F4DD /* Song+ImageLoad.swift in Sources */,
+				AD0CBF381FBF0B390012F4DD /* MiniPlayerViewController.swift in Sources */,
+				AD304A1A1FBDAA82007A7026 /* DataStack.swift in Sources */,
+				AD304A1C1FBDAC31007A7026 /* SongBuilder.swift in Sources */,
+				AD0CBF361FBF07020012F4DD /* SongCollectionDatasource.swift in Sources */,
+				AD8322151FC59DD700B67CAF /* UIView+Snapshot.swift in Sources */,
+				ADE062621FD01D6500EFBC66 /* SongSubscriber.swift in Sources */,
+				AD304A201FBDB5B2007A7026 /* SongCell.swift in Sources */,
+				AD304A051FBDA77E007A7026 /* AppDelegate.swift in Sources */,
+				AD8322181FC6FBAF00B67CAF /* MaxiSongCardViewController.swift in Sources */,
+				AD7C29461FCDC65F00B44AD6 /* SongPlayControlViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AD304A081FBDA77E007A7026 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD304A091FBDA77E007A7026 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AD304A141FBDA77E007A7026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AD304A151FBDA77E007A7026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AD304A171FBDA77E007A7026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = RazePlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.RazePlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AD304A181FBDA77E007A7026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = RazePlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.RazePlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD3049FC1FBDA77E007A7026 /* Build configuration list for PBXProject "RazePlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD304A141FBDA77E007A7026 /* Debug */,
+				AD304A151FBDA77E007A7026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD304A161FBDA77E007A7026 /* Build configuration list for PBXNativeTarget "RazePlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD304A171FBDA77E007A7026 /* Debug */,
+				AD304A181FBDA77E007A7026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD3049F91FBDA77E007A7026 /* Project object */;
+}
