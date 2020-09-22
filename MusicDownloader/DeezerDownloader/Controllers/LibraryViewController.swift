@@ -10,13 +10,15 @@ import UIKit
 
 class LibraryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    @IBOutlet weak var thisView: UICollectionView!
     let reuseIdentifier = "music_cell"
     var items:[MusicFile] = []
-    
+    var tracks:[Track] = []
     
     let myfilemanager_obj = MyFileManager()
     var files_in_document:[URL] = []
-    override func viewDidLoad() {
+   
+    override func viewWillAppear(_ animated: Bool) {
         files_in_document = myfilemanager_obj.getFilesInDocument()
         for file in files_in_document{
             let thisTrack = MusicFile()
@@ -26,8 +28,10 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
             thisTrack.musicTitle = songTitle
             items.append(thisTrack)
         }
-        
     }
+    
+    
+    
     
     // MARK: - UICollectionViewDataSource protocol
     
@@ -47,7 +51,7 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
         
         if this_cell.musicImage != UIImage(){
             cell.icon.image = this_cell.musicImage
-            cell.trackIcon.removeFromSuperview()
+            //cell.trackIcon.removeFromSuperview()
             cell.trackIcon = nil
         }
         return cell
@@ -58,8 +62,25 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
+        
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMusic"{
+            // preparo il dato
+            let vc = segue.destination as! ShowMusicViewController // la casto alla classe di arrivo
+            
+            let track = sender as! Track
+            vc.selectedTrack = track
+        }
+    }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        thisView.reloadData()
+//    }
     
     
     

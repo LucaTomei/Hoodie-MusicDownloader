@@ -14,7 +14,6 @@ import AVFoundation
 class ShowMusicViewController: UIViewController {
     var player = AVAudioPlayer()
     
-    var progress_view = UIProgressView()
     var audioTimer = Timer()
     
     var files_in_dir:[URL]!
@@ -57,7 +56,9 @@ class ShowMusicViewController: UIViewController {
         // Migliora il download della musica
         // Prova: https://stackoverflow.com/questions/56194101/how-to-download-and-save-an-audio-file-and-then-play-it-in-swift
         
-        var downloaded_file_path = MusicDL.downloadTrack(url: self.selectedTrack.link)
+        var downloaded_file_path = MusicDL.downloadTrack(url: self.selectedTrack.link) {
+            
+        }
         
         if files_in_dir.contains(downloaded_file_path){
             curIdx = files_in_dir.firstIndex(of: downloaded_file_path)!
@@ -70,7 +71,6 @@ class ShowMusicViewController: UIViewController {
             try! player = AVAudioPlayer(contentsOf: downloaded_file_path)
             player.play()
             Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateAudioProgressView), userInfo: nil, repeats: true)
-            progress_view.setProgress(Float(player.currentTime/player.duration), animated:false)
         }
         
         isPlaying = true
@@ -85,7 +85,6 @@ class ShowMusicViewController: UIViewController {
        if player.isPlaying
           {
            // Update progress
-           progress_view.setProgress(Float(player.currentTime/player.duration), animated: true)
           }
     }
     
@@ -176,6 +175,11 @@ class ShowMusicViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        playBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        isPlaying = false
+        player.pause()
+    }
     
     
 }

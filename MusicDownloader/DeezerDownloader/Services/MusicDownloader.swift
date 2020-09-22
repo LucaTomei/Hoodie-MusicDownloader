@@ -13,7 +13,7 @@ class MusicDownloader{
     
     
     
-    func downloadTrack(url:String) -> URL{
+    func downloadTrack(url:String, completion: @escaping () -> ()) -> URL{
         if let audioUrl = URL(string: download_url + url) {
 
             // then lets create your document folder url
@@ -26,7 +26,7 @@ class MusicDownloader{
             // to check if it exists before downloading it
             if FileManager.default.fileExists(atPath: destinationUrl.path) {
                 print("The file already exists at path")
-                
+                completion()
                 // if the file doesn't exist
             } else {
 
@@ -37,6 +37,7 @@ class MusicDownloader{
                         // after downloading your file you need to move it to your destination url
                         try FileManager.default.moveItem(at: location, to: destinationUrl)
                         print("File moved to documents folder")
+                        completion()
                     } catch {
                         print(error)
                     }
@@ -44,7 +45,7 @@ class MusicDownloader{
             }
             return destinationUrl.absoluteURL
         }
-        var url: URL = NSURL() as URL
+        let url: URL = NSURL() as URL
         return url
     }
     

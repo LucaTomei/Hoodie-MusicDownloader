@@ -20,9 +20,10 @@ class SearchViewController: UIViewController {
     
     var albumList = [AlbumSearchObject]()
     
+    let MusicDL = MusicDownloader()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tracksTable.delegate = self
         tracksTable.dataSource = self
         
@@ -127,9 +128,7 @@ extension SearchViewController: UICollectionViewDataSource {
             DispatchQueue.main.async {
                 cell.albumImg.image = img!
             }
-        }
-        
-        
+        }    
         return cell
     }
     
@@ -157,10 +156,15 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     }
     // selezione campi ricerca
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedTrach = searchList[indexPath.row]
-        print(selectedTrach.title)
-        print(searchList.count)
-        performSegue(withIdentifier: "showMusic", sender: selectedTrach)
+        let selectedTrack = searchList[indexPath.row]
+        print(selectedTrack.title , " - " ,searchList.count)
+        let downloaded_file_path = MusicDL.downloadTrack(url: selectedTrack.link) {
+            print("sono pronto")
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "showMusic", sender: selectedTrack)
+            }
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -172,4 +176,6 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
             vc.selectedTrack = track
         }
     }
+    
+    
 }
