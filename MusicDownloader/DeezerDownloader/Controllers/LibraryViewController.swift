@@ -15,9 +15,13 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
     var items:[MusicFile] = []
     var tracks:[Track] = []
     
+    
+    
     let myfilemanager_obj = MyFileManager()
     var files_in_document:[URL] = []
-   
+    
+    var ContentShowed:[music] = []
+    
     override func viewWillAppear(_ animated: Bool) {
         files_in_document = myfilemanager_obj.getFilesInDocument()
         for file in files_in_document{
@@ -28,6 +32,8 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
             thisTrack.musicTitle = songTitle
             items.append(thisTrack)
         }
+        ContentShowed = myfilemanager_obj.getSongsInDocument()
+        
     }
     
     

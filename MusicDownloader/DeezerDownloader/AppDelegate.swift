@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Bold", size: 11)!], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Bold", size: 10)!], for: .selected)
         
+        
+        try? AVAudioSession.sharedInstance().setCategory(.playback)
         return true
     }
 

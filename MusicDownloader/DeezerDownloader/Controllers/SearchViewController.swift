@@ -22,6 +22,8 @@ class SearchViewController: UIViewController {
     
     let MusicDL = MusicDownloader()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tracksTable.delegate = self
@@ -94,8 +96,7 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tracksTable.dequeueReusableCell(withIdentifier: "search_cell", for: indexPath) as! SearchTableViewCell
-        
-        cell.trackName.text = searchList[indexPath.row].title
+                cell.trackName.text = searchList[indexPath.row].title
         cell.trackArtist.text = searchList[indexPath.row].artist.name
         
         searchList[indexPath.row].album.cover.downloadImage { (img) in
@@ -139,6 +140,7 @@ extension SearchViewController: UICollectionViewDataSource {
 
 // Per la search history
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
@@ -158,22 +160,29 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedTrack = searchList[indexPath.row]
         print(selectedTrack.title , " - " ,searchList.count)
-        let downloaded_file_path = MusicDL.downloadTrack(url: selectedTrack.link) {
+        let downloaded_file_path = MusicDL.downloadTrack(url: selectedTrack.link, trackName: selectedTrack.title) {
             print("sono pronto")
             DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "showMusic", sender: selectedTrack)
+                self.performSegue(withIdentifier: "showMusicFromSearch", sender: selectedTrack)
             }
         }
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showMusic"{
-            // preparo il dato
-            let vc = segue.destination as! ShowMusicViewController // la casto alla classe di arrivo
-            
-            let track = sender as! Track
-            vc.selectedTrack = track
+        if segue.identifier == "showMusicFromSearch"{
+//            // preparo il dato
+//            let vc = segue.destination as! ShowMusicViewController // la casto alla classe di arrivo
+//
+//            let track = sender as! Track
+//            vc.selectedTrack = track
+            if let MusicPlayerVC = segue.destination as? ShowMusicViewController{
+                let track = sender as! Track
+                let this_idx = fromTitleArtistToIdx(title: track.title, artist: track.artist.name)
+                
+                MusicPlayerVC.SongPlaying = MusicInLocal[this_idx]
+                MusicPlayerVC.Songs = MusicInLocal
+            }
         }
     }
     

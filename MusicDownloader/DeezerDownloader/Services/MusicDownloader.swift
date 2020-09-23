@@ -13,16 +13,16 @@ class MusicDownloader{
     
     
     
-    func downloadTrack(url:String, completion: @escaping () -> ()) -> URL{
+    func downloadTrack(url:String, trackName:String,completion: @escaping () -> ()) -> URL{
         if let audioUrl = URL(string: download_url + url) {
 
             // then lets create your document folder url
             let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
             // lets create your destination file url
-            let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioUrl.lastPathComponent).appendingPathExtension("mp3")
-            print(destinationUrl)
-
+            //let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioUrl.lastPathComponent).appendingPathExtension("mp3")
+            let destinationUrl = documentsDirectoryURL.appendingPathComponent(trackName).appendingPathExtension("mp3")
+            
             // to check if it exists before downloading it
             if FileManager.default.fileExists(atPath: destinationUrl.path) {
                 print("The file already exists at path")
@@ -37,6 +37,7 @@ class MusicDownloader{
                         // after downloading your file you need to move it to your destination url
                         try FileManager.default.moveItem(at: location, to: destinationUrl)
                         print("File moved to documents folder")
+                        MusicInLocal = fileManager.getSongsInDocument()
                         completion()
                     } catch {
                         print(error)

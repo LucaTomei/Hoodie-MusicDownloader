@@ -48,6 +48,8 @@
 		84B1B9E724A2B09E00469BEB /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1B9E624A2B09E00469BEB /* Genre.swift */; };
 		A8135D822502503F000250DE /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8135D812502503F000250DE /* LibraryViewController.swift */; };
 		A8135D84250251A5000250DE /* songCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8135D83250251A5000250DE /* songCollectionViewCell.swift */; };
+		A822B124251A584E005A5C44 /* music.swift in Sources */ = {isa = PBXBuildFile; fileRef = A822B123251A584E005A5C44 /* music.swift */; };
+		A822B127251A5A1F005A5C44 /* AVPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A822B126251A5A1F005A5C44 /* AVPlayerController.swift */; };
 		A849081824FE745400E7D5B1 /* ShowMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849081724FE745400E7D5B1 /* ShowMusicViewController.swift */; };
 		A885C57724FE827700DCEBE6 /* MusicDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A885C57624FE827700DCEBE6 /* MusicDownloader.swift */; };
 		A8D7D1C125027E5D00E84240 /* MyFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D7D1C025027E5D00E84240 /* MyFileManager.swift */; };
@@ -97,6 +99,8 @@
 		84B1B9E624A2B09E00469BEB /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		A8135D812502503F000250DE /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		A8135D83250251A5000250DE /* songCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = songCollectionViewCell.swift; sourceTree = "<group>"; };
+		A822B123251A584E005A5C44 /* music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music.swift; sourceTree = "<group>"; };
+		A822B126251A5A1F005A5C44 /* AVPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerController.swift; sourceTree = "<group>"; };
 		A849081724FE745400E7D5B1 /* ShowMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMusicViewController.swift; sourceTree = "<group>"; };
 		A885C57624FE827700DCEBE6 /* MusicDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDownloader.swift; sourceTree = "<group>"; };
 		A8D7D1C025027E5D00E84240 /* MyFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFileManager.swift; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 				84B1B9E624A2B09E00469BEB /* Genre.swift */,
 				8497457A24A391E700D75920 /* SearchResponse.swift */,
 				A8D7D1C025027E5D00E84240 /* MyFileManager.swift */,
+				A822B123251A584E005A5C44 /* music.swift */,
+				A822B126251A5A1F005A5C44 /* AVPlayerController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -405,6 +411,7 @@
 				84B1B9DD24A2A25200469BEB /* ArtistCollectionViewCell.swift in Sources */,
 				84B1B9E724A2B09E00469BEB /* Genre.swift in Sources */,
 				8497456924A3539A00D75920 /* TrendingCategoryCollectionViewCell.swift in Sources */,
+				A822B124251A584E005A5C44 /* music.swift in Sources */,
 				84B1B9E424A2AF4300469BEB /* GenreCollectionViewCell.swift in Sources */,
 				84B1B9B624A1FCE300469BEB /* TrendingViewController.swift in Sources */,
 				84B1B9CA24A2126900469BEB /* RecentCollectionViewCell.swift in Sources */,
@@ -413,6 +420,7 @@
 				84B1B99624A1F5E300469BEB /* AppDelegate.swift in Sources */,
 				84B1B9E024A2A39C00469BEB /* ArtistInfo.swift in Sources */,
 				84B1B99824A1F5E300469BEB /* SceneDelegate.swift in Sources */,
+				A822B127251A5A1F005A5C44 /* AVPlayerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +565,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EPUVHMZH8D;
 				INFOPLIST_FILE = DeezerDownloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -574,6 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EPUVHMZH8D;
 				INFOPLIST_FILE = DeezerDownloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

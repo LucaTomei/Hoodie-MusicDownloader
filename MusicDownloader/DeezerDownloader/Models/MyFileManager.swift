@@ -18,11 +18,28 @@ class MusicFile {
 
 class MyFileManager {
     func getFilesInDocument() -> [URL]{
+        
         let fileManager = FileManager.default
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         do {
             let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
             return fileURLs
+        } catch {return [] }
+    }
+    
+    func getSongsInDocument() ->[music]{
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        do {
+            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+            var songs:[music] = []
+            for file in fileURLs{
+                let mp3Details = getMP3Details(mp3_file: file)
+                
+                let thisSong = music(trackName: mp3Details.0, artistName: mp3Details.1)
+                songs.append(thisSong)
+            }
+            return songs
         } catch {return [] }
     }
     
@@ -43,7 +60,7 @@ class MyFileManager {
             if metaDataItems.commonKey!.rawValue == "title" {
                 songTitle = metaDataItems.value as! String
             }
-            if metaDataItems.commonKey!.rawValue == "title" {
+            if metaDataItems.commonKey!.rawValue == "artist" {
                 artist = metaDataItems.value as! String
             }
         }
