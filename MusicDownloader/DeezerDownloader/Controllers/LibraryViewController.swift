@@ -15,6 +15,8 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
     var items:[MusicFile] = []
     var tracks:[Track] = []
     
+    var musicTracks:[music] = []
+    
     
     
     let myfilemanager_obj = MyFileManager()
@@ -25,15 +27,20 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewWillAppear(_ animated: Bool) {
         files_in_document = myfilemanager_obj.getFilesInDocument()
         for file in files_in_document{
-            let thisTrack = MusicFile()
+            
+            
             let (songTitle, artist, albumImage) = myfilemanager_obj.getMP3Details(mp3_file: file)
+            
+            let thisTrack = MusicFile()
             thisTrack.musicArtist = artist
             thisTrack.musicImage = albumImage
             thisTrack.musicTitle = songTitle
             items.append(thisTrack)
+            
+            let musicTrack = music(trackName: songTitle, artistName: artist)
+            musicTracks.append(musicTrack)
         }
         ContentShowed = myfilemanager_obj.getSongsInDocument()
-        
     }
     
     
@@ -68,27 +75,26 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
-        
+        let selectedTrack = musicTracks[indexPath.row]
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "showMusicFromLibrary", sender: selectedTrack)
+        }
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showMusic"{
+        if segue.identifier == "showMusicFromLibrary"{
             // preparo il dato
             let vc = segue.destination as! ShowMusicViewController // la casto alla classe di arrivo
             
-            let track = sender as! Track
-            vc.selectedTrack = track
+            if let MusicPlayerVC = segue.destination as? ShowMusicViewController{
+                let track = sender as! music
+                let this_idx = fromTitleArtistToIdx(title: track.trackName!, artist: track.artistName!)
+                
+                MusicPlayerVC.SongPlaying = MusicInLocal[this_idx]
+                MusicPlayerVC.Songs = MusicInLocal
+            }
         }
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        thisView.reloadData()
-//    }
-    
-    
-    
 }
 

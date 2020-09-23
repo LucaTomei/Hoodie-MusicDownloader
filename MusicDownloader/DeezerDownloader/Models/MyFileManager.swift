@@ -68,5 +68,17 @@ class MyFileManager {
     }
     
     
+    func clearDiskCache() {
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        do {
+            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+            var songs:[music] = []
+            for file in fileURLs{
+                try? fileManager.removeItem(atPath: file.path)
+            }
+        } catch {}
+    }
+    
     
 }

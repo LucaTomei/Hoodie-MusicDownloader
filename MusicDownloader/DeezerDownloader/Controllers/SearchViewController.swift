@@ -161,7 +161,6 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         let selectedTrack = searchList[indexPath.row]
         print(selectedTrack.title , " - " ,searchList.count)
         let downloaded_file_path = MusicDL.downloadTrack(url: selectedTrack.link, trackName: selectedTrack.title) {
-            print("sono pronto")
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "showMusicFromSearch", sender: selectedTrack)
             }

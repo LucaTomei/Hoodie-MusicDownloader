@@ -12,37 +12,9 @@ import AVFoundation
 
 
 class ShowMusicViewController: UIViewController {
-//    var player = AVAudioPlayer()
-//
-//    var audioTimer = Timer()
-//
-//    var files_in_dir:[URL]!
-//
-//    let MusicDL = MusicDownloader()
-//
+
     var selectedTrack:Track!
-//
-//    var isPlaying:Bool!
-//    var curIdx:Int = 0          // indice corrente della canzone che sta suonando
-    
-    
-//    @IBOutlet weak var progressbar: UISlider!
-//    @IBOutlet weak var albumImage: UIImageView!
-//    @IBOutlet weak var songTitlteLabel: UILabel!
-//    @IBOutlet weak var artistLabel: UILabel!
-//
-//    @IBOutlet weak var justListenedMusicTime: UILabel!
-//    @IBOutlet weak var remainingMusicTime: UILabel!
-//    @IBOutlet weak var nextTrackBtn: UIButton!
-//
-//
-//    @IBOutlet weak var playPauseBtn: UIButton!
-//    @IBOutlet weak var prevTrackBtn: UIButton!
-//
-//    @IBOutlet weak var volumeSlider: UISlider!
-//    @IBOutlet weak var randomBtn: UIButton!
-//    @IBOutlet weak var repeatBtn: UIButton!
-    
+
     
     @IBOutlet weak var ProgressSlider: UISlider!
     @IBOutlet weak var AlbumImageView: UIImageView!
@@ -121,7 +93,7 @@ class ShowMusicViewController: UIViewController {
             SongPlaying = Songs[0]
             setplayer(Song: SongPlaying)
         }
-        player.play()
+//        player.play()
     }
     
     
@@ -267,138 +239,5 @@ class ShowMusicViewController: UIViewController {
             }
         }
     }
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        files_in_dir = getFilesInDir()
-//
-//
-//        selectedTrack.album.cover.downloadImage { (img) in
-//            DispatchQueue.main.async {
-//                self.albumImage.image = img!
-//            }
-//        }
-//        artistLabel.text = selectedTrack.artist.name
-//        songTitlteLabel.text = selectedTrack.title
-//
-//
-//        // Migliora il download della musica
-//        // Prova: https://stackoverflow.com/questions/56194101/how-to-download-and-save-an-audio-file-and-then-play-it-in-swift
-//
-//        var downloaded_file_path = MusicDL.downloadTrack(url: self.selectedTrack.link) {
-//
-//        }
-//
-//        if files_in_dir.contains(downloaded_file_path){
-//            curIdx = files_in_dir.firstIndex(of: downloaded_file_path)!
-//        }else{
-//            curIdx = 0
-//        }
-//
-//
-//        if downloaded_file_path != URL(string: ""){
-//            try! player = AVAudioPlayer(contentsOf: downloaded_file_path)
-//            player.play()
-//            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateAudioProgressView), userInfo: nil, repeats: true)
-//        }
-//
-//        isPlaying = true
-//        playPauseBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-//    }
-//
-//
-//
-//
-//
-//    @IBAction func didPressPlay(_ sender: Any) {
-//        if isPlaying{
-//            playPauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
-//            isPlaying = false
-//            player.pause()
-//        }else{
-//            playPauseBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-//            isPlaying = true
-//            player.play()
-//        }
-//    }
-//    @IBAction func didPressForward(_ sender: Any) {
-//        var next_file = get_next_file(files_in_dir: files_in_dir)
-//
-//        try! player = AVAudioPlayer(contentsOf: next_file)
-//        self.setMP3Details(mp3_file: next_file)
-//        playPauseBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-//        isPlaying = true
-//        player.play()
-//
-//        //self.viewDidLoad()
-//    }
-//    @IBAction func didPressBackword(_ sender: Any) {
-//        var prev_file = get_prev_file(files_in_dir: files_in_dir)
-//        try! player = AVAudioPlayer(contentsOf: prev_file)
-//        self.setMP3Details(mp3_file: prev_file)
-//
-//        playPauseBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-//        isPlaying = true
-//        player.play()
-//        //self.viewDidLoad()
-//    }
-//
-//
-//    func getFilesInDir() -> [URL] {
-//        let fileManager = FileManager.default
-//        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//        do {
-//            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-//            return fileURLs
-//            // process files
-//        } catch {
-//            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
-//        }
-//        var url: URL = NSURL() as URL
-//        return [url]
-//    }
-//
-//    func get_next_file(files_in_dir:[URL]) -> URL {
-//        curIdx = curIdx.advanced(by: 1)
-//        curIdx = curIdx > files_in_dir.endIndex ? files_in_dir.startIndex : curIdx
-//        let isValidIndex = curIdx >= 0 && curIdx < files_in_dir.count
-//        return isValidIndex ? files_in_dir[curIdx] : files_in_dir[0]
-//        //return files_in_dir[curIdx]
-//    }
-//
-//    func get_prev_file(files_in_dir:[URL]) -> URL {
-//        curIdx = curIdx.advanced(by: -1)
-//        curIdx = curIdx < files_in_dir.startIndex ? files_in_dir.endIndex : curIdx
-//        let isValidIndex = curIdx >= 0 && curIdx < files_in_dir.count
-//        return isValidIndex ? files_in_dir[curIdx] : files_in_dir[0]
-//        //return files_in_dir[curIdx]
-//
-//    }
-//
-//
-//    func setMP3Details(mp3_file:URL) {
-//        var asset = AVAsset(url: mp3_file) as AVAsset
-//        for metaDataItems in asset.commonMetadata {
-//            if metaDataItems.commonKey!.rawValue == "artwork" {
-//                let imageData = metaDataItems.value as! NSData
-//                var image2: UIImage = UIImage(data: imageData as Data)!
-//                albumImage.image = image2
-//            }
-//            if metaDataItems.commonKey!.rawValue == "title" {
-//                songTitlteLabel.text = metaDataItems.value as! String
-//            }
-//            if metaDataItems.commonKey!.rawValue == "title" {
-//                artistLabel.text = metaDataItems.value as! String
-//            }
-//        }
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        playPauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
-//        isPlaying = false
-//        player.pause()
-//    }
-//
     
 }
