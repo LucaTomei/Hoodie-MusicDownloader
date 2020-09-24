@@ -52,6 +52,9 @@
 		A822B127251A5A1F005A5C44 /* AVPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A822B126251A5A1F005A5C44 /* AVPlayerController.swift */; };
 		A845F6C5251B80F900942A71 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A845F6C4251B80F900942A71 /* SettingsTableViewController.swift */; };
 		A849081824FE745400E7D5B1 /* ShowMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849081724FE745400E7D5B1 /* ShowMusicViewController.swift */; };
+		A853F852251C9C4B002E2155 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A853F851251C9C4B002E2155 /* LoginViewController.swift */; };
+		A853F856251C9C5B002E2155 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A853F855251C9C5B002E2155 /* RegistrationViewController.swift */; };
+		A853F859251C9EAD002E2155 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A853F858251C9EAD002E2155 /* DesignableView.swift */; };
 		A885C57724FE827700DCEBE6 /* MusicDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A885C57624FE827700DCEBE6 /* MusicDownloader.swift */; };
 		A8D7D1C125027E5D00E84240 /* MyFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D7D1C025027E5D00E84240 /* MyFileManager.swift */; };
 /* End PBXBuildFile section */
@@ -104,6 +107,9 @@
 		A822B126251A5A1F005A5C44 /* AVPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerController.swift; sourceTree = "<group>"; };
 		A845F6C4251B80F900942A71 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		A849081724FE745400E7D5B1 /* ShowMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMusicViewController.swift; sourceTree = "<group>"; };
+		A853F851251C9C4B002E2155 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A853F855251C9C5B002E2155 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		A853F858251C9EAD002E2155 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		A885C57624FE827700DCEBE6 /* MusicDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDownloader.swift; sourceTree = "<group>"; };
 		A8D7D1C025027E5D00E84240 /* MyFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +180,7 @@
 		84B1B99424A1F5E300469BEB /* DeezerDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				A853F850251C9BF9002E2155 /* LoginRegistration */,
 				84B1B9C624A211A800469BEB /* Reusable */,
 				84B1B9BB24A2016E00469BEB /* Fonts */,
 				84B1B9B024A1FC5000469BEB /* Extensions */,
@@ -310,6 +317,16 @@
 			path = genreCell;
 			sourceTree = "<group>";
 		};
+		A853F850251C9BF9002E2155 /* LoginRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				A853F851251C9C4B002E2155 /* LoginViewController.swift */,
+				A853F858251C9EAD002E2155 /* DesignableView.swift */,
+				A853F855251C9C5B002E2155 /* RegistrationViewController.swift */,
+			);
+			path = LoginRegistration;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -397,6 +414,7 @@
 				A8135D84250251A5000250DE /* songCollectionViewCell.swift in Sources */,
 				8497457324A372A300D75920 /* TrendingTableViewCell.swift in Sources */,
 				A849081824FE745400E7D5B1 /* ShowMusicViewController.swift in Sources */,
+				A853F856251C9C5B002E2155 /* RegistrationViewController.swift in Sources */,
 				A8D7D1C125027E5D00E84240 /* MyFileManager.swift in Sources */,
 				84B1B9B824A1FCEF00469BEB /* SearchViewController.swift in Sources */,
 				84B1B9CF24A2360F00469BEB /* Download_Image.swift in Sources */,
@@ -406,8 +424,10 @@
 				8497457F24A3950600D75920 /* SearchAlbumCollectionViewCell.swift in Sources */,
 				8497457B24A391E700D75920 /* SearchResponse.swift in Sources */,
 				8497457824A38AD000D75920 /* SearchTableViewCell.swift in Sources */,
+				A853F852251C9C4B002E2155 /* LoginViewController.swift in Sources */,
 				84B1B9BA24A1FD2300469BEB /* MainTabBarController.swift in Sources */,
 				84B1B9D824A29D8400469BEB /* InspiredCollectionViewCell.swift in Sources */,
+				A853F859251C9EAD002E2155 /* DesignableView.swift in Sources */,
 				A8135D822502503F000250DE /* LibraryViewController.swift in Sources */,
 				A885C57724FE827700DCEBE6 /* MusicDownloader.swift in Sources */,
 				84B1B9C524A2110C00469BEB /* Track.swift in Sources */,
