@@ -28,3 +28,4 @@ struct AlbumSearchObject: Codable {
         case cover = "cover_medium"
     }
 }
+

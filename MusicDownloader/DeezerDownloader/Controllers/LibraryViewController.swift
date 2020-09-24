@@ -12,35 +12,17 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBOutlet weak var thisView: UICollectionView!
     let reuseIdentifier = "music_cell"
-    var items:[MusicFile] = []
-    var tracks:[Track] = []
-    
-    var musicTracks:[music] = []
-    
-    
-    
-    let myfilemanager_obj = MyFileManager()
-    var files_in_document:[URL] = []
     
     var ContentShowed:[music] = []
+    var myfilemanager_obj = MyFileManager()
     
     override func viewWillAppear(_ animated: Bool) {
-        files_in_document = myfilemanager_obj.getFilesInDocument()
-        for file in files_in_document{
-            
-            
-            let (songTitle, artist, albumImage) = myfilemanager_obj.getMP3Details(mp3_file: file)
-            
-            let thisTrack = MusicFile()
-            thisTrack.musicArtist = artist
-            thisTrack.musicImage = albumImage
-            thisTrack.musicTitle = songTitle
-            items.append(thisTrack)
-            
-            let musicTrack = music(trackName: songTitle, artistName: artist)
-            musicTracks.append(musicTrack)
-        }
         ContentShowed = myfilemanager_obj.getSongsInDocument()
+        self.thisView.reloadData()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        ContentShowed = myfilemanager_obj.getSongsInDocument()
+        self.thisView.reloadData()
     }
     
     
@@ -50,7 +32,7 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     // tell the collection view how many cells to make
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.items.count
+        return self.ContentShowed.count
     }
     
     // make a cell for each cell index path
@@ -59,14 +41,19 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! songCollectionViewCell
         
-        let this_cell = self.items[indexPath.item]
-        cell.trackName.text = this_cell.musicTitle
+        let this_cell = self.ContentShowed[indexPath.item]
+        cell.trackName.text = this_cell.trackName
         
-        if this_cell.musicImage != UIImage(){
-            cell.icon.image = this_cell.musicImage
-            //cell.trackIcon.removeFromSuperview()
+        
+       
+        if this_cell.getFileURL() != nil  {
+            let albumImage = fromSongUrlToImage(mp3_file: this_cell.getFileURL()!)
+            
+            cell.icon.image = albumImage
             cell.trackIcon = nil
         }
+        
+        
         return cell
     }
     
@@ -75,7 +62,7 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
-        let selectedTrack = musicTracks[indexPath.row]
+        let selectedTrack = ContentShowed[indexPath.row]
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "showMusicFromLibrary", sender: selectedTrack)
         }

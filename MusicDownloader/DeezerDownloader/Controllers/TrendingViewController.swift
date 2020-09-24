@@ -104,7 +104,13 @@ extension TrendingViewController: UITableViewDelegate {
     
     // Selezione genere trending in alto
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-         print("selezionato \(genreList[indexPath.row])")
+        let selectedGenre = genreList[indexPath.row]
+//        print("\n\n\n\n")
+//        service.fetchAlbumSearch(query: selectedGenre.name) { (albums) in
+//            var albumList = albums.data
+//            
+//        }
+        print("selezionato \(genreList[indexPath.row])")
     }
 }
 
