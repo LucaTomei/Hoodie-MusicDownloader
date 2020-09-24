@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>967068800394-ga1ra5nssh8pgjfn7l50trqsndho8lil.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.967068800394-ga1ra5nssh8pgjfn7l50trqsndho8lil</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCx61qBJDy-OdS5dO6rdIPvMRCxOjpohuk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>967068800394</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.lucasmac.hoodie</string>
+	<key>PROJECT_ID</key>
+	<string>hoodie-9ac2a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hoodie-9ac2a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:967068800394:ios:ad9b90c4fb3d4d706ce473</string>
+	<key>DATABASE_URL</key>
+	<string>https://hoodie-9ac2a.firebaseio.com</string>
+</dict>
+</plist>

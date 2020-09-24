@@ -87,6 +87,7 @@ class SettingsTableViewController: UITableViewController {
             return
         case 5:
             // Logout Session
+            logoutUser()
             return
         default:
             return  // Do nothing
@@ -130,5 +131,13 @@ class SettingsTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    func logoutUser() {
+        print("Logout Clicked")
+        AuthManager().logout()
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "showLogin", sender: self)
+        }
+    }
 }
 
