@@ -78,5 +78,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	
+	<!-- Force light theme -->
+	<key>UIUserInterfaceStyle</key>	
+	<string>Light</string>
 </dict>
 </plist>

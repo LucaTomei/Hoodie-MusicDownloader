@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-
+import MediaPlayer
 
 
 class ShowMusicViewController: UIViewController {
@@ -52,8 +52,9 @@ class ShowMusicViewController: UIViewController {
         return SongPlaying.getFileURL()!
     }
     
+    var playeritem:AVPlayerItem!
     func setplayer(Song: music){
-        let playeritem = AVPlayerItem(url: SongURL)
+        playeritem = AVPlayerItem(url: SongURL)
         player.replaceCurrentItem(with: playeritem)
         lengthOfSong = CMTimeGetSeconds(playeritem.asset.duration)
         ProgressSlider.minimumValue = 0
@@ -238,6 +239,76 @@ class ShowMusicViewController: UIViewController {
                 self.nexttrack(self)
             }
         }
+        self.setupNowPlaying()
+        self.setupRemoteTransportControls()
+        // Set playing as first state
+        MPNowPlayingInfoCenter.default().playbackState = .playing
     }
     
+    func setupRemoteTransportControls() {
+        // Get the shared MPRemoteCommandCenter
+        let commandCenter = MPRemoteCommandCenter.shared()
+
+        // Add handler for Play Command
+        commandCenter.playCommand.addTarget { [unowned self] event in
+            if self.player.rate == 0.0 {
+                self.PlayButtonOutlet.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+                self.player.play()
+                return .success
+            }
+            return .commandFailed
+        }
+
+        // Add handler for Pause Command
+        commandCenter.pauseCommand.addTarget { [unowned self] event in
+            if self.player.rate == 1.0 {
+                self.PlayButtonOutlet.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                self.player.pause()
+                return .success
+            }
+            return .commandFailed
+        }
+
+        commandCenter.previousTrackCommand.addTarget { [weak self] event in
+            guard let _self = self else { return .commandFailed }
+            self?.lasttrack(self)
+
+            return .success
+        }
+
+        commandCenter.nextTrackCommand.addTarget { [weak self] event in
+            guard let _self = self else { return .commandFailed }
+            self?.nexttrack(self)
+
+            return .success
+        }
+        
+    }
+    
+    func setupNowPlaying() {
+        // Define Now Playing Info
+        var nowPlayingInfo = [String : Any]()
+        nowPlayingInfo[MPMediaItemPropertyTitle] = SongPlaying.trackName
+        nowPlayingInfo[MPMediaItemPropertyArtist] = SongPlaying.artistName
+        
+        if let image = fromSongUrlToImage(mp3_file: SongPlaying.getFileURL()!) as? UIImage {
+            nowPlayingInfo[MPMediaItemPropertyArtwork] =
+                MPMediaItemArtwork(boundsSize: image.size) { size in
+                    return image
+            }
+        }
+        
+        
+        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = playeritem.currentTime().seconds
+        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = playeritem.asset.duration.seconds
+        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = player.rate
+        
+        
+        // Set the metadata
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+       
+    }
+    
+    
+
 }
