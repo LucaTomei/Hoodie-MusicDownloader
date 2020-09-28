@@ -14,3 +14,4 @@ func dismissKeyboardOnTap(view:UIView){
     tap.cancelsTouchesInView = false
     view.addGestureRecognizer(tap)
 }
+

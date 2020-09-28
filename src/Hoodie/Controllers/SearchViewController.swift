@@ -55,6 +55,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         resultsView.alpha = searchField.text == "" ? 0 : 1
         
+        
+        
+        
     }
     
     // When ENTER (Invio) is pressed close keyboard
@@ -172,6 +175,8 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         let selectedTrack = searchList[indexPath.row]
         print(selectedTrack.title , " - " ,searchList.count)
         let downloaded_file_path = MusicDL.downloadTrack(url: selectedTrack.link, trackName: selectedTrack.title) {
+            
+            
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "showMusicFromSearch", sender: selectedTrack)
             }
@@ -181,11 +186,6 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMusicFromSearch"{
-//            // preparo il dato
-//            let vc = segue.destination as! ShowMusicViewController // la casto alla classe di arrivo
-//
-//            let track = sender as! Track
-//            vc.selectedTrack = track
             if let MusicPlayerVC = segue.destination as? ShowMusicViewController{
                 let track = sender as! Track
                 let this_idx = fromTitleArtistToIdx(title: track.title, artist: track.artist.name)
@@ -196,5 +196,17 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         }
     }
     
+//    func downloadAlert() {
+//        let alertController = UIAlertController(title: "Title", message: "Loading...", preferredStyle: .alert)
+//
+//        let progressDownload : UIProgressView = UIProgressView(progressViewStyle: .default)
+//
+//           progressDownload.setProgress(5.0/10.0, animated: true)
+//           progressDownload.frame = CGRect(x: 10, y: 70, width: 250, height: 0)
+//
+//        alertController.view.addSubview(progressDownload)
+//        present(alertController, animated: true, completion: nil)
+//        alertController.dismiss(animated: true)
+//    }
     
 }
