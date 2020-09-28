@@ -9,14 +9,21 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        dismissKeyboardOnTap(view: self.view)
+        
+        emailField.delegate = self
+        passwordField.delegate = self
+        
         loginButton.backgroundColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
         signupButton.setTitleColor(UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1), for: .normal)
         
@@ -25,6 +32,13 @@ class LoginViewController: UIViewController {
             goToMainView(message: "")
         }
     }
+    
+    // When ENTER (Invio) is pressed close keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+       textField.resignFirstResponder()
+       return true
+    }
+    
     
     @IBAction func didPressLogin(_ sender: Any) {
         var message = ""
@@ -87,6 +101,7 @@ class LoginViewController: UIViewController {
     }
     
     func goToMainView(message:String){
+        MyFileManager().clearDiskCache()
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "showMain", sender: self)
         }
@@ -106,4 +121,5 @@ class LoginViewController: UIViewController {
 
         self.present(refreshAlert, animated: true, completion: nil)
     }
+    
 }

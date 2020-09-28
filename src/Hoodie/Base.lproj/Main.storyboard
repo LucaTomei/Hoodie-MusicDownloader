@@ -729,12 +729,12 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music-icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Px-M1-zip" userLabel="Music Icon">
-                                                    <rect key="frame" x="52" y="43" width="24" height="24"/>
+                                                    <rect key="frame" x="52" y="50.5" width="24" height="24"/>
                                                     <color key="tintColor" red="0.38431372549999998" green="0.0" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPt-Lg-jap" userLabel="Music Title">
-                                                    <rect key="frame" x="0.0" y="99" width="128" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="106.5" width="128" height="13.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -767,7 +767,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ill-iW-icc">
-                                <rect key="frame" x="20" y="0.0" width="124" height="92"/>
+                                <rect key="frame" x="20" y="44" width="124" height="48"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -777,14 +777,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ddv-Jt-0c8" secondAttribute="trailing" id="7fy-nM-Yo1"/>
-                            <constraint firstItem="Ill-iW-icc" firstAttribute="top" secondItem="NE7-K5-jlK" secondAttribute="top" id="Auo-Ul-e2P"/>
                             <constraint firstItem="ddv-Jt-0c8" firstAttribute="top" secondItem="Ill-iW-icc" secondAttribute="bottom" constant="8" symbolic="YES" id="RDM-87-a6G"/>
                             <constraint firstItem="NE7-K5-jlK" firstAttribute="bottom" secondItem="ddv-Jt-0c8" secondAttribute="bottom" id="Ud5-OP-SKW"/>
                             <constraint firstItem="ddv-Jt-0c8" firstAttribute="top" secondItem="JPM-ER-jSJ" secondAttribute="top" constant="100" id="V8G-k5-TMu"/>
-                            <constraint firstItem="Ill-iW-icc" firstAttribute="leading" secondItem="NE7-K5-jlK" secondAttribute="leading" constant="20" id="Z1k-n7-bc1"/>
-                            <constraint firstItem="Ill-iW-icc" firstAttribute="leading" secondItem="JPM-ER-jSJ" secondAttribute="leadingMargin" id="aeJ-La-DKy"/>
+                            <constraint firstItem="Ill-iW-icc" firstAttribute="leading" secondItem="NE7-K5-jlK" secondAttribute="leading" constant="20" id="Wfu-n7-0YY"/>
                             <constraint firstItem="ddv-Jt-0c8" firstAttribute="leading" secondItem="NE7-K5-jlK" secondAttribute="leading" id="kM5-DJ-RSe"/>
-                            <constraint firstItem="NE7-K5-jlK" firstAttribute="trailing" secondItem="Ill-iW-icc" secondAttribute="trailing" constant="270" id="u58-Bf-wbb"/>
+                            <constraint firstItem="NE7-K5-jlK" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ill-iW-icc" secondAttribute="trailing" id="u58-Bf-wbb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="LIBRARY" image="library-icon" id="kpk-Ca-hbt"/>
@@ -864,17 +862,17 @@
                                 </connections>
                             </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x2B-sj-7XO">
-                                <rect key="frame" x="7" y="440" width="400" height="82.5"/>
+                                <rect key="frame" x="7" y="440" width="400" height="65.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7M-2e-d4P">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="41"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6S-91-Edo">
-                                        <rect key="frame" x="0.0" y="49" width="400" height="33.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <rect key="frame" x="0.0" y="41.5" width="400" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>

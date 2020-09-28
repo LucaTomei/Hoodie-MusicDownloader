@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var whatsYourEmailLabel: UILabel!
@@ -18,13 +18,24 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var joinNewsLabel: UILabel!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        dismissKeyboardOnTap(view: self.view)
+        passwordField.delegate = self
+        emailField.delegate = self
+        
         joinNewsLabel.isHidden = true
         joinNewsButton.isHidden = true
         whatsYourEmailLabel.textColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
         signupButton.backgroundColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
+    }
+    
+    // When ENTER (Invio) is pressed close keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+       textField.resignFirstResponder()
+       return true
     }
     
 
@@ -71,6 +82,7 @@ class RegistrationViewController: UIViewController {
     }
     
     func goToMainView(){
+        MyFileManager().clearDiskCache()
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "showMain", sender: self)
         }

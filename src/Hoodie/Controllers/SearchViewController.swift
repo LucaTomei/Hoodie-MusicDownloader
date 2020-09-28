@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var tracksTable: UITableView!
     @IBOutlet weak var resultsView: UIView!
@@ -26,6 +26,10 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchField.delegate = self
+        
+        dismissKeyboardOnTap(view: self.view)
+        
         tracksTable.delegate = self
         tracksTable.dataSource = self
         
@@ -52,6 +56,13 @@ class SearchViewController: UIViewController {
         resultsView.alpha = searchField.text == "" ? 0 : 1
         
     }
+    
+    // When ENTER (Invio) is pressed close keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+       textField.resignFirstResponder()
+       return true
+    }
+
     
     func search(query: String) {
         
