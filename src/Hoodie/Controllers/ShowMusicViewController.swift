@@ -44,18 +44,29 @@ class ShowMusicViewController: UIViewController {
     var RepeatType = RepeatTypes.NotRepeat
     var RandomType = RandomTypes.NotRandom
     
+    var launchedFromLibrary = false
+    
     
     
     
     let player = AVPlayerController.shared.player
+    
     var SongURL : URL{
         return SongPlaying.getFileURL()!
     }
     
     var playeritem:AVPlayerItem!
-    func setplayer(Song: music){
-        playeritem = AVPlayerItem(url: SongURL)
-        player.replaceCurrentItem(with: playeritem)
+    
+    func setplayer(Song: music, replace:Bool){
+        playeritem = AVPlayerItem(url: Song.getFileURL()!)
+        if SongPlaying != nil{
+            print("Sto settando in locale")
+            AVPlayerController.shared.SongPlaying = SongPlaying
+            SongPlaying = AVPlayerController.shared.SongPlaying
+        }
+        if replace != false{
+            player.replaceCurrentItem(with: playeritem)
+        }
         lengthOfSong = CMTimeGetSeconds(playeritem.asset.duration)
         ProgressSlider.minimumValue = 0
         ProgressSlider.maximumValue = Float( lengthOfSong!)
@@ -64,9 +75,11 @@ class ShowMusicViewController: UIViewController {
         
         // Insert image on player view
         DispatchQueue.main.async {
-            self.AlbumImageView.image = fromSongUrlToImage(mp3_file: self.SongURL)
+            self.AlbumImageView.image = fromSongUrlToImage(mp3_file: Song.getFileURL()!)
         }
     }
+    
+    
     
     @IBAction func playbutton(_ sender: UIButton) {
         
@@ -85,16 +98,18 @@ class ShowMusicViewController: UIViewController {
     }
                 
     @IBAction func nexttrack(_ sender: Any) {
-        let index = Songs.firstIndex(of: SongPlaying) ?? 0
-        print (index)
+        Songs = MyFileManager().getSongsInDocument()
+        let index = self.Songs.firstIndex(of: AVPlayerController.shared.SongPlaying) ?? 0
+        print("nexttrack:\nindex:\(index)\nAVPlayerController.shared.SongPlaying: \(AVPlayerController.shared.SongPlaying)\nSongPlaying: \(SongPlaying)\nSongs: \(Songs)")
         if index != Songs.count-1{
-            SongPlaying = Songs[index+1]
-            setplayer(Song: SongPlaying)
+            AVPlayerController.shared.SongPlaying = self.Songs[index+1]
+            setplayer(Song: AVPlayerController.shared.SongPlaying, replace: true)
         }else{
-            SongPlaying = Songs[0]
-            setplayer(Song: SongPlaying)
+            AVPlayerController.shared.SongPlaying = self.Songs[0]
+            setplayer(Song: AVPlayerController.shared.SongPlaying, replace: true)
         }
-//        player.play()
+        print("Imposto la prossima canzone: \(AVPlayerController.shared.SongPlaying.trackName)")
+        player.play()
     }
     
     
@@ -104,16 +119,15 @@ class ShowMusicViewController: UIViewController {
             let Time = CMTime(value: 0, timescale: 1)
             player.seek(to: Time)
         }else{
-            let index = Songs.firstIndex(of: SongPlaying) ?? 0
+            let index = Songs.firstIndex(of: AVPlayerController.shared.SongPlaying) ?? 0
             if index != 0{
-                SongPlaying = Songs[index-1]
-                setplayer(Song: SongPlaying)
+                AVPlayerController.shared.SongPlaying = Songs[index-1]
+                setplayer(Song: AVPlayerController.shared.SongPlaying, replace: true)
             }else{
-                SongPlaying = Songs[Songs.count-1]
-                setplayer(Song: SongPlaying)
+                AVPlayerController.shared.SongPlaying = Songs[Songs.count-1]
+                setplayer(Song: AVPlayerController.shared.SongPlaying, replace: true)
             }
             player.play()
-            
         }
     }
     
@@ -135,7 +149,7 @@ class ShowMusicViewController: UIViewController {
         switch RepeatType{
         case .NotRepeat:
             RepeatType = .RepeatAll
-            RepeatButton.backgroundColor = .systemBlue
+            RepeatButton.backgroundColor = applicationTintColor
             RepeatButton.tintColor = .white
         case .RepeatAll:
             RepeatType = .RepeatOne
@@ -144,7 +158,7 @@ class ShowMusicViewController: UIViewController {
             RepeatType = .NotRepeat
             RepeatButton.setImage(UIImage(systemName: "repeat"), for: .normal)
             RepeatButton.backgroundColor = .white
-            RepeatButton.tintColor = .systemBlue
+            RepeatButton.tintColor = applicationTintColor
         }
         
     }
@@ -153,14 +167,14 @@ class ShowMusicViewController: UIViewController {
         switch RandomType {
         case .NotRandom:
             RandomType = .Random
-            RandomButton.backgroundColor = .systemBlue
+            RandomButton.backgroundColor = applicationTintColor
             RandomButton.tintColor = .white
             SongsDefault = Songs
             Songs.shuffle()
         case .Random:
             RandomType = .NotRandom
             RandomButton.backgroundColor = .white
-            RandomButton.tintColor = .systemBlue
+            RandomButton.tintColor = applicationTintColor
             Songs = SongsDefault
         }
     }
@@ -176,7 +190,7 @@ class ShowMusicViewController: UIViewController {
     func addPeriodicObserver(){
         let timeInterval = CMTime(value: 1, timescale: 1)
         player.addPeriodicTimeObserver(forInterval: timeInterval, queue: .main) { (CMTime) in
-            let currentTime = CMTimeGetSeconds(self.player.currentTime())
+            let currentTime = CMTimeGetSeconds(AVPlayerController.shared.player.currentTime())
             self.TimePassed.text = self.formatedTime(time: currentTime)
             self.TimeRemained.text = " -\( self.formatedTime(time: Double(self.ProgressSlider.maximumValue) - currentTime))"
             self.ProgressSlider.value = Float(currentTime)
@@ -199,50 +213,104 @@ class ShowMusicViewController: UIViewController {
     
     
     func set_colors(){
-        PlayButtonOutlet.tintColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
-        RandomButton.tintColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
-        RepeatButton.tintColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
-        nextTrackBtn.tintColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
-        prevTrackBtn.tintColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
-        VolumeSlider.tintColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
+        PlayButtonOutlet.tintColor = applicationTintColor
+        RandomButton.tintColor = applicationTintColor
+        RepeatButton.tintColor = applicationTintColor
+        nextTrackBtn.tintColor = applicationTintColor
+        prevTrackBtn.tintColor = applicationTintColor
+        VolumeSlider.tintColor = applicationTintColor
+        
+        ProgressSlider.setThumbImage(UIImage(), for: .normal)
+        
     }
+    
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print(self.tabBarController?.selectedIndex)
+        let thisSong = AVPlayerController.shared.SongPlaying
+        self.Songs = MyFileManager().getSongsInDocument()
+        if thisSong.trackName != nil{
+            setplayer(Song: thisSong, replace: false)
+            addPeriodicObserver()
+            
+            
+            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: nil, queue: .main) { (_) in
+                switch self.RepeatType{
+                case .NotRepeat:
+                    let index = self.Songs.firstIndex(of: AVPlayerController.shared.SongPlaying)
+                    if index == self.Songs.count-1{
+                        self.nexttrack(self)
+                        self.player.pause()
+                        self.PlayButtonOutlet.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                        self.isplaying = false
+
+                    }else{
+                        self.nexttrack(self)
+                    }
+                case .RepeatOne:
+                    let Time = CMTime(value: 0, timescale: 1)
+                    self.player.seek(to: Time)
+                    self.player.play()
+                case .RepeatAll:
+                    self.nexttrack(self)
+                }
+            }
+        }
+        
+    }
+    
     
     
     override func viewDidLoad() {
         set_colors()
-        setplayer(Song: SongPlaying)
-        player.play()
-        addPeriodicObserver()
-        NameLabel.text = SongPlaying.trackName
-        ArtistLabel.text = SongPlaying.artistName
-        VolumeSlider.value = player.volume
+        self.Songs = MyFileManager().getSongsInDocument()
         
-    
-        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: nil, queue: .main) { (_) in
-            switch self.RepeatType{
-            case .NotRepeat:
-                let index = self.Songs.firstIndex(of: self.SongPlaying)
-                if index == self.Songs.count-1{
-                    self.nexttrack(self)
-                    self.player.pause()
-                    self.PlayButtonOutlet.setImage(UIImage(systemName: "play.fill"), for: .normal)
-                    self.isplaying = false
+        if SongPlaying != nil{
+            setplayer(Song: SongPlaying, replace: true)
+            player.play()
+            addPeriodicObserver()
+            NameLabel.text = SongPlaying.trackName
+            ArtistLabel.text = SongPlaying.artistName
+            VolumeSlider.value = player.volume
+            
+        
+            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: nil, queue: .main) { (_) in
+                switch self.RepeatType{
+                case .NotRepeat:
+                    let index = self.Songs.firstIndex(of: self.SongPlaying)
+                    if index == self.Songs.count-1{
+                        self.nexttrack(self)
+                        self.player.pause()
+                        self.PlayButtonOutlet.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                        self.isplaying = false
 
-                }else{
+                    }else{
+                        self.nexttrack(self)
+                    }
+                case .RepeatOne:
+                    let Time = CMTime(value: 0, timescale: 1)
+                    self.player.seek(to: Time)
+                    self.player.play()
+                case .RepeatAll:
                     self.nexttrack(self)
                 }
-            case .RepeatOne:
-                let Time = CMTime(value: 0, timescale: 1)
-                self.player.seek(to: Time)
-                self.player.play()
-            case .RepeatAll:
-                self.nexttrack(self)
+            }
+            self.setupNowPlaying()
+            self.setupRemoteTransportControls()
+            // Set playing as first state
+            MPNowPlayingInfoCenter.default().playbackState = .playing
+        }
+        if launchedFromLibrary{
+            
+            // Dismiss this view after 2 seconds
+            DispatchQueue.main.async{
+                self.dismiss(animated: true, completion: nil)
+                self.view.isHidden = true
+                self.PlayButtonOutlet.setImage(UIImage(systemName: "play.fill"), for: .normal)
             }
         }
-        self.setupNowPlaying()
-        self.setupRemoteTransportControls()
-        // Set playing as first state
-        MPNowPlayingInfoCenter.default().playbackState = .playing
+        
     }
     
     func setupRemoteTransportControls() {

@@ -178,18 +178,22 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
             
             
             DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "showMusicFromSearch", sender: selectedTrack)
+                self.performSegue(withIdentifier: "showPlayer", sender: selectedTrack)
+                //self.tabBarController?.selectedIndex = 4
             }
+            
         }
         
     }
     
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showMusicFromSearch"{
+        if segue.identifier == "showPlayer"{
             if let MusicPlayerVC = segue.destination as? ShowMusicViewController{
                 let track = sender as! Track
                 let this_idx = fromTitleArtistToIdx(title: track.title, artist: track.artist.name)
-                
+
                 MusicPlayerVC.SongPlaying = MusicInLocal[this_idx]
                 MusicPlayerVC.Songs = MusicInLocal
             }

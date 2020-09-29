@@ -25,11 +25,17 @@ class SettingsTableViewController: UITableViewController {
     let myFileManager = MyFileManager()
     let myTwitterURLStr = "https://twitter.com/LucaTomei1995"
     let myWebPage = "https://lucatomei.github.io"
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setAppVersion()
         tableView.tableFooterView = UIView()    // remove unused cell after logout
+        
     }
+    
+    
     
     
     func showWebPage(_ which: String) {

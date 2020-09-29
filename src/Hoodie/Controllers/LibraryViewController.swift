@@ -65,8 +65,10 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
         let selectedTrack = ContentShowed[indexPath.row]
+        
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "showMusicFromLibrary", sender: selectedTrack)
+            self.tabBarController?.selectedIndex = 4
         }
     }
     
@@ -82,6 +84,7 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
                 
                 MusicPlayerVC.SongPlaying = MusicInLocal[this_idx]
                 MusicPlayerVC.Songs = MusicInLocal
+                MusicPlayerVC.launchedFromLibrary = true
             }
         }
     }
@@ -100,6 +103,8 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
         return CGSize(width: size, height: size)
     }
+    
+    
     
 }
 

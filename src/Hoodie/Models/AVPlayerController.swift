@@ -13,8 +13,8 @@ import AVFoundation
 
 //Share the player to avoid repeating playing AVPlayer when
 // exiting the previous page and then entering the player
-
 class AVPlayerController {
     static let shared = AVPlayerController()
     let player = AVPlayer()
+    var SongPlaying = music()
 }

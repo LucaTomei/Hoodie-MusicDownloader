@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+let applicationTintColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
+
 func dismissKeyboardOnTap(view:UIView){
     let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
     tap.cancelsTouchesInView = false

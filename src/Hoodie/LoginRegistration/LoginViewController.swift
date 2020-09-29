@@ -101,7 +101,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func goToMainView(message:String){
-        MyFileManager().clearDiskCache()
+        //MyFileManager().clearDiskCache()
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "showMain", sender: self)
         }
