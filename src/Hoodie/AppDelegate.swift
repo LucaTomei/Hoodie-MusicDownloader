@@ -15,16 +15,15 @@ import FirebaseAuth
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
     var SongPlaying : music!
     let player = AVPlayerController.shared.player
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        
         // Override point for customization after application launch.
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Bold", size: 11)!], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Bold", size: 10)!], for: .selected)
-        
-        FirebaseApp.configure()
+                FirebaseApp.configure()
         
         try? AVAudioSession.sharedInstance().setCategory(.playback)
         return true

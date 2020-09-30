@@ -221,7 +221,6 @@ class ShowMusicViewController: UIViewController {
         VolumeSlider.tintColor = applicationTintColor
         
         ProgressSlider.setThumbImage(UIImage(), for: .normal)
-        
     }
     
 

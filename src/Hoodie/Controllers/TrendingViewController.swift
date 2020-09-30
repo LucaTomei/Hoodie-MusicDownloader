@@ -56,6 +56,9 @@ class TrendingViewController: UIViewController {
         }
     }
 
+    @IBAction func didPressSettings(_ sender: Any) {
+    
+    }
 }
 
 extension TrendingViewController: UICollectionViewDelegate {

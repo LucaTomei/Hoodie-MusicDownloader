@@ -30,12 +30,27 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpNavBar()
         setAppVersion()
         tableView.tableFooterView = UIView()    // remove unused cell after logout
-        
     }
     
+    func setUpNavBar(){
+        //For title in navigation bar
+        self.navigationController?.view.backgroundColor = UIColor.white
+        self.navigationController?.view.tintColor = UIColor.orange
+        self.navigationItem.title = "Settings"
+
+        //For back button in navigation bar
+        let button = UIBarButtonItem(title: "YourTitle", style: UIBarButtonItem.Style.bordered, target: self, action: #selector(goBack))
+        self.navigationItem.backBarButtonItem = button
+    }
     
+    @objc func goBack()
+    {
+        print("ok")
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
     func showWebPage(_ which: String) {
