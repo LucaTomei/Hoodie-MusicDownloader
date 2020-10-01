@@ -8,10 +8,14 @@
 
 import UIKit
 import SafariServices
+import SwiftMessages
 
+import MessageUI
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
+    
+    let ourEmailAddress:[String] = ["luca.tom1995@gmail.com", "trinca.1542534@studenti.uniroma1.it", "marzilli.1878501@studenti.uniroma1.it"]
     
     // TODO
     /*
@@ -19,6 +23,11 @@ class SettingsTableViewController: UITableViewController {
         - add mail icon
         - add telegram icon
      */
+    
+    @IBOutlet weak var myImageView: UIImageView!
+    @IBOutlet weak var daniloImageView: UIImageView!
+    @IBOutlet weak var giovanniImageView: UIImageView!
+    
     
     @IBOutlet weak var versionNumberLabel: UILabel!
     
@@ -33,6 +42,12 @@ class SettingsTableViewController: UITableViewController {
         setUpNavBar()
         setAppVersion()
         tableView.tableFooterView = UIView()    // remove unused cell after logout
+
+        // Set imageview Size
+        myImageView.setRounded()
+        daniloImageView.setRounded()
+        giovanniImageView.setRounded()
+        
     }
     
     func setUpNavBar(){
@@ -74,7 +89,8 @@ class SettingsTableViewController: UITableViewController {
             case 1: return 2
             case 2: return 1
             case 3: return 2
-            case 4: return 3    // for to show only my name return 1
+            case 4:
+                return 3    // for to show only my name return 1
             case 5: return 1
             default:    return 0
         }
@@ -116,6 +132,8 @@ class SettingsTableViewController: UITableViewController {
     }
     
     
+    
+    
     func setAppVersion(){
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         versionNumberLabel.text = appVersion
@@ -123,34 +141,13 @@ class SettingsTableViewController: UITableViewController {
     
     
     func confirmDeleteCache() {
-        let alert = UIAlertController(title: "Erase all Data", message: "Do You Want to Erase all Data?", preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            let alert = UIAlertController(title: "Updating data", message: "Please wait...", preferredStyle: .alert)
-
-            alert.view.tintColor = UIColor.black
-            let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 10,y: 5,width: 50, height: 50)) as UIActivityIndicatorView
-            loadingIndicator.hidesWhenStopped = true
-            loadingIndicator.style = UIActivityIndicatorView.Style.gray
-            loadingIndicator.startAnimating();
-            
-            alert.view.addSubview(loadingIndicator)
-            
-            
-            self.present(alert, animated: true) {
-                self.dismiss(animated: true, completion: {
-                let alert2 = UIAlertController(title: "Alert", message: "Data has been cleared", preferredStyle: UIAlertController.Style.alert)
-                    alert2.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-                    self.present(alert2, animated: true, completion: nil)
-                })
-            }
+        displayAlertButton(viewController: self, title: "Clear Data Cache", body: "Do You Want to Erase all Data?",buttonTitle: "Delete 🎵") {
+            beautifulSuccessAlert(viewController: self, title: "Data has been cleared", subtitle: nil, customImage: UIImage(named: "AppLogo")!)
             self.myFileManager.clearDiskCache()
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in
-            return
-        }))
-        self.present(alert, animated: true, completion: nil)
+            
+        }
     }
+    
     
     
     func logoutUser() {
@@ -160,5 +157,53 @@ class SettingsTableViewController: UITableViewController {
             self.performSegue(withIdentifier: "showLogin", sender: self)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 4{  // set size only for my section
+            return 40.0
+        }
+        return UITableView.automaticDimension;//Choose your custom row height
+    }
+    
+    
+    @IBAction func didSendMailToMe(_ sender: Any) {
+        sendEmail(to: ourEmailAddress[0])
+    }
+    
+    @IBAction func didSendMailToDanilo(_ sender: Any) {
+        sendEmail(to: ourEmailAddress[1])
+    }
+    
+    @IBAction func didSendMailToGiovanni(_ sender: Any) {
+        sendEmail(to: ourEmailAddress[2])
+    }
+    
+    
+    
+    func sendEmail(to:String) {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([to])
+            mail.setMessageBody("<p>You're app is so awesome!</p>", isHTML: true)
+
+            present(mail, animated: true)
+        } else {
+            beautifulSuccessAlert(viewController: self, title: "Unable to send email", subtitle: "Maybe you don't have mail app installed.", customImage: UIImage(named: "AppLogo")!)
+        }
+    }
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
 }
 
+
+extension UIImageView {
+    func setRounded() {
+        self.layer.cornerRadius = (self.frame.size.width ?? 0.0) / 2
+        self.clipsToBounds = true
+        self.layer.borderWidth = 0.7
+        self.layer.borderColor = applicationTintColor.cgColor
+   }
+}

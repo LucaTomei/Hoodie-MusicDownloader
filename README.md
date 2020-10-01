@@ -9,10 +9,14 @@ Swift iOS music downloader app
 - [ ] Settings <--> Tutta da finire
 - [x] Login
 - [x] Logout in settings
-- [ ] Nuovo tab in basso per il player
+- [x] Nuovo tab in basso per il player
 - [x] Reimpostazione password in login se errata
-- [ ] Non si vedono bene i campi di testo in fase di login e registrazione
-- [ ] Non si vede il testo in ricerca
-- [ ] I tasti in alto a trending (rossi) non si vedono
-- [ ] La label "Library" non si vede per niente
-- [ ] Il testo della canzone nella label di libreria deve essere più piccolo
+- [x] Non si vedono bene i campi di testo in fase di login e registrazione
+- [x] Non si vede il testo in ricerca
+- [x] I tasti in alto a trending (rossi) non si vedono
+- [x] La label "Library" non si vede per niente
+- [x] Il testo della canzone nella label di libreria deve essere più piccolo
+- [ ] I comandi di musica non vengono mostrati su apple watch
+- [ ] Il tasto Show all non funziona nella ricerca
+- [ ] Implementazione download in Explore
+- [ ] Implamentazione download in album in searchView

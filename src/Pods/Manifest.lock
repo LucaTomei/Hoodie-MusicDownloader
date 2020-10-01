@@ -1,4 +1,5 @@
 PODS:
+  - FCAlertView (1.4.0)
   - Firebase (6.33.0):
     - Firebase/Core (= 6.33.0)
   - Firebase/Core (6.33.0):
@@ -75,15 +76,21 @@ PODS:
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.10)
+  - SwiftMessages (8.0.2):
+    - SwiftMessages/App (= 8.0.2)
+  - SwiftMessages/App (8.0.2)
 
 DEPENDENCIES:
+  - FCAlertView
   - Firebase
   - FirebaseAuth
   - FirebaseDatabase
   - FirebaseStorage
+  - SwiftMessages
 
 SPEC REPOS:
   trunk:
+    - FCAlertView
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -99,8 +106,10 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - SwiftMessages
 
 SPEC CHECKSUMS:
+  FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
   Firebase: 8db6f2d1b2c5e2984efba4949a145875a8f65fe5
   FirebaseAnalytics: 5dd088bd2e67bb9d13dbf792d1164ceaf3052193
   FirebaseAuth: c92d49ada7948d1a23466e3db17bc4c2039dddc3
@@ -116,7 +125,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
+  SwiftMessages: 633304165351b8e3dcbb81a71f8efcd86f9c1669
 
-PODFILE CHECKSUM: 0f4ce2b415f966684da2c0ce5047d361158e8b43
+PODFILE CHECKSUM: 7fc0453bf1b76041f9b04b5a37de906e00d0225d
 
 COCOAPODS: 1.9.3

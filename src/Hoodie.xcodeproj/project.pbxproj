@@ -60,6 +60,8 @@
 		A8665C7D251CB7F1000D5366 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8665C7C251CB7F1000D5366 /* AuthManager.swift */; };
 		A885C57724FE827700DCEBE6 /* MusicDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A885C57624FE827700DCEBE6 /* MusicDownloader.swift */; };
 		A8D7D1C125027E5D00E84240 /* MyFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D7D1C025027E5D00E84240 /* MyFileManager.swift */; };
+		A8EB2A5C2524E8F800514C44 /* AlwaysShowPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EB2A5A2524E8F600514C44 /* AlwaysShowPopup.swift */; };
+		A8EB2A5D2524E8F800514C44 /* ArrayChoiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EB2A5B2524E8F800514C44 /* ArrayChoiceTableViewController.swift */; };
 		C236667E8EA03A16FB0B7DE3 /* Pods_Hoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0DA1E1FC1ED302BB13CBBD /* Pods_Hoodie.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +121,8 @@
 		A8665C7C251CB7F1000D5366 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		A885C57624FE827700DCEBE6 /* MusicDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDownloader.swift; sourceTree = "<group>"; };
 		A8D7D1C025027E5D00E84240 /* MyFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFileManager.swift; sourceTree = "<group>"; };
+		A8EB2A5A2524E8F600514C44 /* AlwaysShowPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlwaysShowPopup.swift; sourceTree = "<group>"; };
+		A8EB2A5B2524E8F800514C44 /* ArrayChoiceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayChoiceTableViewController.swift; sourceTree = "<group>"; };
 		EE0DA1E1FC1ED302BB13CBBD /* Pods_Hoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22807F237E90657AB3E64B7 /* Pods-Hoodie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hoodie.release.xcconfig"; path = "Target Support Files/Pods-Hoodie/Pods-Hoodie.release.xcconfig"; sourceTree = "<group>"; };
 		F5C825B7B760DFC02BCC5F4C /* Pods-Hoodie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hoodie.debug.xcconfig"; path = "Target Support Files/Pods-Hoodie/Pods-Hoodie.debug.xcconfig"; sourceTree = "<group>"; };
@@ -283,6 +287,7 @@
 		84B1B9C624A211A800469BEB /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
+				A8EB2A592524E8D000514C44 /* PopOver */,
 				8497457C24A394EB00D75920 /* searchAlbumCell */,
 				8497457524A38A9500D75920 /* searchCell */,
 				8497456624A3537B00D75920 /* trendingCategoryCell */,
@@ -358,6 +363,15 @@
 				A8665C7C251CB7F1000D5366 /* AuthManager.swift */,
 			);
 			path = LoginRegistration;
+			sourceTree = "<group>";
+		};
+		A8EB2A592524E8D000514C44 /* PopOver */ = {
+			isa = PBXGroup;
+			children = (
+				A8EB2A5A2524E8F600514C44 /* AlwaysShowPopup.swift */,
+				A8EB2A5B2524E8F800514C44 /* ArrayChoiceTableViewController.swift */,
+			);
+			path = PopOver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -491,6 +505,7 @@
 			files = (
 				A8135D84250251A5000250DE /* songCollectionViewCell.swift in Sources */,
 				8497457324A372A300D75920 /* TrendingTableViewCell.swift in Sources */,
+				A8EB2A5C2524E8F800514C44 /* AlwaysShowPopup.swift in Sources */,
 				A849081824FE745400E7D5B1 /* ShowMusicViewController.swift in Sources */,
 				A853F856251C9C5B002E2155 /* RegistrationViewController.swift in Sources */,
 				A8D7D1C125027E5D00E84240 /* MyFileManager.swift in Sources */,
@@ -522,6 +537,7 @@
 				A8665C7D251CB7F1000D5366 /* AuthManager.swift in Sources */,
 				84B1B9CD24A2284600469BEB /* Playlist.swift in Sources */,
 				84B1B99624A1F5E300469BEB /* AppDelegate.swift in Sources */,
+				A8EB2A5D2524E8F800514C44 /* ArrayChoiceTableViewController.swift in Sources */,
 				84B1B9E024A2A39C00469BEB /* ArtistInfo.swift in Sources */,
 				84B1B99824A1F5E300469BEB /* SceneDelegate.swift in Sources */,
 				A822B127251A5A1F005A5C44 /* AVPlayerController.swift in Sources */,

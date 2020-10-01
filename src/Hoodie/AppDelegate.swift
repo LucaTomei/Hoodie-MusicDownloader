@@ -26,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 FirebaseApp.configure()
         
         try? AVAudioSession.sharedInstance().setCategory(.playback)
+        
+        // Sleep for showing launchscreen storyboard
+        //Thread.sleep(forTimeInterval: 3.0)
+        
         return true
     }
 

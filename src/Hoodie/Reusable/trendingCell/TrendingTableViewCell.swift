@@ -16,6 +16,7 @@ class TrendingTableViewCell: UITableViewCell {
     @IBOutlet weak var trackArtist: UILabel!
     @IBOutlet weak var playsCount: UILabel!
     @IBOutlet weak var rankBG: UIView!
+    @IBOutlet weak var dottedButtons: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

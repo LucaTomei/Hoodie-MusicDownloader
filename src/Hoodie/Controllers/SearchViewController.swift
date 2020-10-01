@@ -173,7 +173,8 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     // selezione campi ricerca
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedTrack = searchList[indexPath.row]
-        print(selectedTrack.title , " - " ,searchList.count)
+        
+        print(selectedTrack.link)
         let downloaded_file_path = MusicDL.downloadTrack(url: selectedTrack.link, trackName: selectedTrack.title) {
             
             
@@ -200,17 +201,5 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         }
     }
     
-//    func downloadAlert() {
-//        let alertController = UIAlertController(title: "Title", message: "Loading...", preferredStyle: .alert)
-//
-//        let progressDownload : UIProgressView = UIProgressView(progressViewStyle: .default)
-//
-//           progressDownload.setProgress(5.0/10.0, animated: true)
-//           progressDownload.frame = CGRect(x: 10, y: 70, width: 250, height: 0)
-//
-//        alertController.view.addSubview(progressDownload)
-//        present(alertController, animated: true, completion: nil)
-//        alertController.dismiss(animated: true)
-//    }
     
 }

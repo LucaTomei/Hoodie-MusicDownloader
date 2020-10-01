@@ -11,6 +11,7 @@ import AVFoundation
 import MediaPlayer
 
 
+
 class ShowMusicViewController: UIViewController {
 
     var selectedTrack:Track!
@@ -227,6 +228,7 @@ class ShowMusicViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         print(self.tabBarController?.selectedIndex)
+        
         let thisSong = AVPlayerController.shared.SongPlaying
         self.Songs = MyFileManager().getSongsInDocument()
         if thisSong.trackName != nil{
@@ -309,7 +311,6 @@ class ShowMusicViewController: UIViewController {
                 self.PlayButtonOutlet.setImage(UIImage(systemName: "play.fill"), for: .normal)
             }
         }
-        
     }
     
     func setupRemoteTransportControls() {
@@ -373,9 +374,6 @@ class ShowMusicViewController: UIViewController {
         
         // Set the metadata
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
-       
     }
-    
-    
 
 }

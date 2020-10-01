@@ -77,4 +77,18 @@ class APIServices {
             
         }.resume()
     }
+    
+    func fetchPlaylistSearch(query: String, completion: @escaping (SearchPlaylistResponse) -> ()){
+        let queryField = query.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
+        guard let url = URL(string: "https://api.deezer.com/search/playlist?q=\(queryField)") else {return}
+        URLSession.shared.dataTask(with: url) { (data, res, err) in
+            guard let data = data else {return}
+            do {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(SearchPlaylistResponse.self, from: data)
+                completion(response)
+            } catch {print(error.localizedDescription)}
+            
+        }.resume()
+    }
 }
