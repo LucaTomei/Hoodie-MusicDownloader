@@ -23,6 +23,19 @@ class APIServices {
         }.resume()
     }
     
+    func fetchAlbum(id: Int, completion: @escaping (CompleteAlbumSearch) -> ()){
+        guard let url = URL(string: "https://api.deezer.com/album/\(id)") else {return}
+        URLSession.shared.dataTask(with: url) { (data, res, err) in
+            guard let data = data else {return}
+            do {
+                let decoder = JSONDecoder()
+                let album = try decoder.decode(CompleteAlbumSearch   .self, from: data)
+                completion(album)
+            } catch {print(error.localizedDescription)}
+            
+        }.resume()
+    }
+    
     func fetchArtist(id: Int, completion: @escaping (ArtistInfo) -> ()){
         guard let url = URL(string: "https://api.deezer.com/artist/\(id)") else {return}
         URLSession.shared.dataTask(with: url) { (data, res, err) in

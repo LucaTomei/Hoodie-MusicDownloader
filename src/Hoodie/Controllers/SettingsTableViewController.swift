@@ -17,13 +17,6 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     
     let ourEmailAddress:[String] = ["luca.tom1995@gmail.com", "trinca.1542534@studenti.uniroma1.it", "marzilli.1878501@studenti.uniroma1.it"]
     
-    // TODO
-    /*
-     - Add images on credits section
-        - add mail icon
-        - add telegram icon
-     */
-    
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var daniloImageView: UIImageView!
     @IBOutlet weak var giovanniImageView: UIImageView!
@@ -63,7 +56,6 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     
     @objc func goBack()
     {
-        print("ok")
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -195,6 +187,11 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
     }
 }
 

@@ -31,6 +31,7 @@ class TrendingViewController: UIViewController {
     var selectedTabPlaylistID:Int = 0
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -181,22 +182,28 @@ extension TrendingViewController: UICollectionViewDataSource {
             self.service.fetchPlaylist(id: self.selectedTabPlaylistID) { (playlist) in
                 let downloadableTrackLink = playlist.tracks.data[indexPath.row].link
                 let downloadableTrackName = playlist.tracks.data[indexPath.row].title
-                let downloadableTrackArtist = playlist.tracks.data[indexPath.row].artist
+                let downloadableTrackArtist = playlist.tracks.data[indexPath.row].artist.name
                 DispatchQueue.main.async {
-                    MusicDownloader().downloadTrack(url: downloadableTrackLink, trackName: downloadableTrackName) {
-                        
-                        // Success message
-                        let view = MessageView.viewFromNib(layout: .statusLine)
-                        view.configureContent(title: "Download Success", body: "\(downloadableTrackArtist) - \(downloadableTrackName) has been downloaded successfully!", iconText: iconText)
-                        view.configureTheme(.success)
-                        view.configureDropShadow()
-                        SwiftMessages.show(view: view)
-                        
-                    }
+                    MusicDownloader().downloadTrack(url: downloadableTrackLink, trackName: downloadableTrackName) {}
+                    
                 }
             }
+            
+            self.downloadSuccessfullyAlert(trackName: self.playList[indexPath.row].title, artistName: self.playList[indexPath.row].artist.name)
         }
     }
+    
+    func downloadSuccessfullyAlert(trackName:String, artistName:String){
+        // Success message
+        let iconText = ["🎸", "😁", "😶"].randomElement()!
+        let view = MessageView.viewFromNib(layout: .statusLine)
+        view.configureContent(title: "Download Success", body: "\(trackName) - \(artistName) has been downloaded successfully!", iconText: iconText)
+        view.configureTheme(.success)
+        view.configureDropShadow()
+        
+        SwiftMessages.show(view: view)
+    }
+    
 }
 
 extension TrendingViewController: UICollectionViewDelegateFlowLayout {

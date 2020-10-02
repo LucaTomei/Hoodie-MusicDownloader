@@ -21,9 +21,11 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         ContentShowed = myfilemanager_obj.getSongsInDocument()
         self.thisView.reloadData()
     }
+    
     
     
     
@@ -103,6 +105,7 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
         return CGSize(width: size, height: size)
     }
+    
     
     
     

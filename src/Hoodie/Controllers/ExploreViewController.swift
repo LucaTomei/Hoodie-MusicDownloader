@@ -170,7 +170,6 @@ extension ExploreViewController: UICollectionViewDataSource {
                     cell.albumImg.image = img!
                 }
             }
-            
             return cell
         }
         

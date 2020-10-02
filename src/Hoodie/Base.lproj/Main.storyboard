@@ -29,22 +29,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="675"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ey0-g6-SgC">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1214"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1248.6666666666667"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOV-G9-nl9">
-                                                <rect key="frame" x="16.000000000000007" y="12.999999999999996" width="114.66666666666669" height="39.666666666666657"/>
+                                                <rect key="frame" x="16" y="12.999999999999996" width="129.33333333333334" height="47.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="34"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recently played" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wde-Hy-0Xv">
-                                                <rect key="frame" x="16" y="72.666666666666671" width="157.33333333333334" height="25.666666666666671"/>
+                                                <rect key="frame" x="16" y="80.666666666666671" width="182.33333333333334" height="31"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BcM-Z2-R2n">
-                                                <rect key="frame" x="0.0" y="113.33333333333331" width="375" height="140"/>
+                                                <rect key="frame" x="0.0" y="126.66666666666669" width="375" height="140"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="140" id="FdO-Wp-9OT"/>
@@ -67,13 +67,13 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended for you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4y2-ib-0pq">
-                                                <rect key="frame" x="15.999999999999986" y="275.33333333333331" width="225.66666666666663" height="25.666666666666686"/>
+                                                <rect key="frame" x="16" y="288.66666666666669" width="257.33333333333331" height="31"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IgK-eJ-01f">
-                                                <rect key="frame" x="0.0" y="316" width="375" height="232"/>
+                                                <rect key="frame" x="0.0" y="334.66666666666669" width="375" height="232.00000000000006"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="232" id="jD8-UG-GKa"/>
@@ -96,13 +96,13 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Inspired !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXY-co-oqi">
-                                                <rect key="frame" x="16" y="570" width="132.33333333333334" height="25.666666666666629"/>
+                                                <rect key="frame" x="16" y="588.66666666666663" width="149.66666666666666" height="31"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mCA-8I-z8F">
-                                                <rect key="frame" x="0.0" y="610.66666666666663" width="375" height="236"/>
+                                                <rect key="frame" x="0.0" y="634.66666666666663" width="375" height="236"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="236" id="7LA-S5-GwH"/>
@@ -125,13 +125,13 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Artists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRE-wd-hNz">
-                                                <rect key="frame" x="16" y="868.66666666666663" width="144.66666666666666" height="25.666666666666629"/>
+                                                <rect key="frame" x="16" y="892.66666666666663" width="167.33333333333334" height="31"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E54-A8-QRi">
-                                                <rect key="frame" x="0.0" y="909.33333333333337" width="375" height="140.00000000000011"/>
+                                                <rect key="frame" x="0.0" y="938.66666666666663" width="375" height="139.99999999999989"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="140" id="p3F-nO-XBH"/>
@@ -154,13 +154,13 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres &amp; Moods" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhY-jV-io4">
-                                                <rect key="frame" x="16" y="1073.3333333333333" width="165.33333333333334" height="25.666666666666742"/>
+                                                <rect key="frame" x="16" y="1102.6666666666667" width="180.33333333333334" height="31"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sdt-B7-K1M">
-                                                <rect key="frame" x="0.0" y="1114" width="375" height="70"/>
+                                                <rect key="frame" x="0.0" y="1148.6666666666667" width="375" height="70"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="bfR-VD-rax"/>
@@ -284,36 +284,36 @@
                                 <rect key="frame" x="0.0" y="138" width="375" height="537"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHN-09-jtO">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="646.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search history" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axg-TM-tyR">
-                                                <rect key="frame" x="16" y="14.000000000000002" width="141" height="25.666666666666671"/>
+                                                <rect key="frame" x="16" y="14" width="164.33333333333334" height="31"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="TopLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpq-FU-ESH">
-                                                <rect key="frame" x="292" y="13" width="67" height="28"/>
+                                                <rect key="frame" x="294" y="14" width="65" height="31"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="13"/>
                                                 <state key="normal" title="SHOW ALL">
                                                     <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VFl-Kh-qCr">
-                                                <rect key="frame" x="16" y="45.666666666666657" width="343" height="270"/>
+                                                <rect key="frame" x="16" y="51" width="343" height="270"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="270" id="8ev-2w-Pg8"/>
                                                 </constraints>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cut-A7-RVh">
-                                                <rect key="frame" x="16" y="325.66666666666669" width="74.333333333333329" height="25.666666666666686"/>
+                                                <rect key="frame" x="16" y="331" width="87.666666666666671" height="31"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rO0-a0-6ml">
-                                                <rect key="frame" x="0.0" y="364.33333333333331" width="375" height="231.99999999999994"/>
+                                                <rect key="frame" x="0.0" y="375" width="375" height="232"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="232" id="q6t-HX-79S"/>
@@ -382,6 +382,7 @@
                         <outlet property="albumsCollection" destination="rO0-a0-6ml" id="2XQ-5f-1cN"/>
                         <outlet property="resultsView" destination="uHN-09-jtO" id="C4B-CP-SSG"/>
                         <outlet property="searchField" destination="jjw-mN-guP" id="LPp-H4-EL9"/>
+                        <outlet property="showAllBtn" destination="kpq-FU-ESH" id="BaS-Yf-1LF"/>
                         <outlet property="tracksTable" destination="VFl-Kh-qCr" id="Rzq-d5-FUJ"/>
                         <segue destination="5Bc-Bl-YXr" kind="show" identifier="showPlayer" id="7Ov-dl-yK4"/>
                     </connections>
@@ -399,7 +400,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7V-Ur-gsY">
-                                <rect key="frame" x="16" y="13" width="130.66666666666666" height="46"/>
+                                <rect key="frame" x="16" y="13" width="157.66666666666666" height="46"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -428,13 +429,13 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Trending - 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pZ-RP-1lf">
-                                <rect key="frame" x="16" y="154" width="196.33333333333334" height="30"/>
+                                <rect key="frame" x="16" y="154" width="222.33333333333334" height="31"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iCg-HH-vKG">
-                                <rect key="frame" x="16" y="204" width="343" height="471"/>
+                                <rect key="frame" x="16" y="205" width="343" height="470"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKF-cB-Tpp">
@@ -881,7 +882,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ill-iW-icc">
-                                <rect key="frame" x="16.000000000000007" y="13" width="104.66666666666669" height="79"/>
+                                <rect key="frame" x="15.999999999999993" y="13" width="123.33333333333331" height="79"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1542,7 +1543,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="7Ov-dl-yK4"/>
         <segue reference="0RG-Ld-BaP"/>
-        <segue reference="ale-z0-gAl"/>
+        <segue reference="cS9-iS-B3q"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.1764705882352941" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
     <resources>

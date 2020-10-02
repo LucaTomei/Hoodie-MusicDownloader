@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import SwiftMessages
+
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var tracksTable: UITableView!
     @IBOutlet weak var resultsView: UIView!
     @IBOutlet weak var albumsCollection: UICollectionView!
+    
+    @IBOutlet weak var showAllBtn: UIButton!
+    
+    //0641434910
+    var selectedRowIndex = -1
+    
     
     let service = APIServices()
     
@@ -55,9 +63,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         resultsView.alpha = searchField.text == "" ? 0 : 1
         
-        
-        
-        
+        // Hide show all button
+        showAllBtn.isHidden = true
     }
     
     // When ENTER (Invio) is pressed close keyboard
@@ -96,6 +103,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
     
 }
 
@@ -147,7 +155,35 @@ extension SearchViewController: UICollectionViewDataSource {
         return cell
     }
     
-    
+    // Download album in search view
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedAlbum = albumList[indexPath.row]
+        print("Selezionato album \(selectedAlbum)")
+        
+        displayAlertButton(viewController: self, title: "Download?", body: "Do you want to download \"\(selectedAlbum.title)\" Album?", buttonTitle: "YES") {
+            
+            self.service.fetchAlbum(id: selectedAlbum.id) { (album) in
+                for track in album.tracks.data{
+                    let downloaded_track = self.MusicDL.downloadTrack(url: track.link.absoluteString, trackName: track.title) {
+                        // Single track in album has been downloaded
+                    }
+                }
+            }
+            // 800938861
+            
+            let view = MessageView.viewFromNib(layout: .statusLine)
+            view.configureTheme(.success)
+            view.configureDropShadow()
+            let iconText = ["🎉"].randomElement()!
+
+            view.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+            (view.backgroundView as? CornerRoundingView)?.cornerRadius = 10
+
+            view.configureContent(title: "Download in Progress", body: "", iconText: iconText)
+            view.bodyLabel?.text = "\(selectedAlbum.title) will be downloaded soon!"
+            SwiftMessages.show(view: view)
+        }
+    }
 }
 
 
@@ -176,7 +212,6 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         
         print(selectedTrack.link)
         let downloaded_file_path = MusicDL.downloadTrack(url: selectedTrack.link, trackName: selectedTrack.title) {
-            
             
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "showPlayer", sender: selectedTrack)
