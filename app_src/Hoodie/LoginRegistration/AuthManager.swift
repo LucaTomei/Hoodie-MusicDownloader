@@ -10,8 +10,26 @@ import Foundation
 import FirebaseAuth
 import UIKit
 
+import GoogleSignIn
+
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class AuthManager {
+    
+    func getCurrentUserID() -> String{
+        if let uid = Auth.auth().currentUser?.uid{
+            return uid
+        }
+        if let uid = GIDSignIn.sharedInstance()?.currentUser.userID{
+            return uid
+        }
+        if let uid = AccessToken.current?.userID{
+            return uid
+        }
+        return "uid"
+    }
+    
     func createUser(email: String, password: String, completionBlock: @escaping (_ success: Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
             if let user = authResult?.user {
@@ -53,7 +71,11 @@ class AuthManager {
     }
     
     func logout(){
-        do { try Auth.auth().signOut() }
+        do {
+            try Auth.auth().signOut()
+            try GIDSignIn.sharedInstance()?.signOut()
+            try LoginManager().logOut()
+        }
         catch { print("already logged out") }
     }
     
@@ -64,5 +86,9 @@ class AuthManager {
             callback?(error )
         }
     }
+    
+    
+    
+    
     
 }

@@ -117,6 +117,9 @@ class TrendingViewController: UIViewController {
                         MusicDownloader().downloadTrack(url: item.link, trackName: item.title) {
                         }
                     }
+                    let toPost = item.getTrackDescription()
+                    let thisUserRef = DBRef.child("users/\(AuthManager().getCurrentUserID())").child(getTodayDateDay()).child(getTodayDateHourMinute()).childByAutoId()
+                    thisUserRef.setValue(toPost)
                     if i == 10{break}   // Limit only 10 tracks
                 }
             }
@@ -186,7 +189,10 @@ extension TrendingViewController: UICollectionViewDataSource {
                 let downloadableTrackArtist = playlist.tracks.data[indexPath.row].artist.name
                 DispatchQueue.main.async {
                     MusicDownloader().downloadTrack(url: downloadableTrackLink, trackName: downloadableTrackName) {}
-                    
+                   
+                    let toPost = playlist.tracks.data[indexPath.row].getTrackDescription()
+                    let thisUserRef = DBRef.child("users/\(AuthManager().getCurrentUserID())").child(getTodayDateDay()).child(getTodayDateHourMinute()).childByAutoId()
+                    thisUserRef.setValue(toPost)
                 }
             }
             
@@ -288,8 +294,10 @@ extension TrendingViewController: UITableViewDataSource {
                     let downloadableTrackLink = playlist.tracks.data[selectedButton.tag].link
                     let downloadableTrackName = playlist.tracks.data[selectedButton.tag].title
                     MusicDownloader().downloadTrack(url: downloadableTrackLink, trackName: downloadableTrackName) {
-                        print("Scaricata con successo")
                     }
+                    let toPost = playlist.tracks.data[selectedButton.tag].getTrackDescription()
+                    let thisUserRef = DBRef.child("users/\(AuthManager().getCurrentUserID())").child(getTodayDateDay()).child(getTodayDateHourMinute()).childByAutoId()
+                    thisUserRef.setValue(toPost)
                 }
             }
             }

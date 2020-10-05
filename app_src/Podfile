@@ -13,4 +13,11 @@ target 'Hoodie' do
   pod 'FCAlertView'
   pod 'SwiftMessages'
 
+  # Google Signin
+  pod 'GoogleSignIn'
+
+  # Facebook Signin
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+
 end

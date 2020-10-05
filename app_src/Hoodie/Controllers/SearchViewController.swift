@@ -167,9 +167,9 @@ extension SearchViewController: UICollectionViewDataSource {
                     let downloaded_track = self.MusicDL.downloadTrack(url: track.link.absoluteString, trackName: track.title) {
                         // Single track in album has been downloaded
                     }
+                    
                 }
             }
-            // 800938861
             
             let view = MessageView.viewFromNib(layout: .statusLine)
             view.configureTheme(.success)
@@ -214,6 +214,10 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         let downloaded_file_path = MusicDL.downloadTrack(url: selectedTrack.link, trackName: selectedTrack.title) {
             
             DispatchQueue.main.async {
+                let toPost = selectedTrack.getTrackDescription()
+                let thisUserRef = DBRef.child("users/\(AuthManager().getCurrentUserID())").child(getTodayDateDay()).child(getTodayDateHourMinute()).childByAutoId()
+                thisUserRef.setValue(toPost)
+                
                 self.performSegue(withIdentifier: "showPlayer", sender: selectedTrack)
                 //self.tabBarController?.selectedIndex = 4
             }

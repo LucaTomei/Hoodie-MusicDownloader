@@ -1,5 +1,7 @@
 # Music Downloader Server
 
+This is the server used to download songs from Deezer.
+
 ## Configuration
 
 ```shell

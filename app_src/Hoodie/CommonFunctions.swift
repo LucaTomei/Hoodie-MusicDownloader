@@ -91,3 +91,20 @@ func displayAlertButton(viewController:UIViewController, title:String, body:Stri
     
 }
 
+
+func getTodayDateDay() -> String{
+    let date = Date()
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd_MM_yyyy"
+    let result = formatter.string(from: date)
+    return result
+}
+
+func getTodayDateHourMinute() -> String{
+    let dateFormatter : DateFormatter = DateFormatter()
+    //  dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    dateFormatter.dateFormat = "HH_mm"
+    let date = Date()
+    let dateString = dateFormatter.string(from: date)
+    return dateString
+}

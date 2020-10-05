@@ -17,6 +17,10 @@ struct Track: Codable {
     var preview: String
     var artist: Artist
     var album: Album
+    
+    func getTrackDescription() -> [String:Any]{
+        return ["id": id, "title":title, "link":link, "duration":duration, "rank":rank, "artist_name":artist.name, "album_name":album.title]
+    }
 }
 
 struct Artist: Codable {
