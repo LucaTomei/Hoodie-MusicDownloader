@@ -61,6 +61,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let user = GIDSignIn.sharedInstance()?.currentUser {
             // User signed in
             print("User signed in: \(user)")
+            DBRef.child("users/").setValue(AuthManager().getCurrentUserID())
             goToMainView(message: "")
         } else {
             // User signed out
@@ -96,6 +97,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     print("User cancelled login")
                 case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                     print("Logged in")
+                    DBRef.child("users/").setValue(AuthManager().getCurrentUserID())
                     self.goToMainView(message: "")
                 }
             }

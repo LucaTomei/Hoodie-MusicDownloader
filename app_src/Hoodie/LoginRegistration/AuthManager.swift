@@ -19,13 +19,16 @@ class AuthManager {
     
     func getCurrentUserID() -> String{
         if let uid = Auth.auth().currentUser?.uid{
-            return uid
+            print("Accesso con firebase \(uid)")
+            return String(uid)
         }
-        if let uid = GIDSignIn.sharedInstance()?.currentUser.userID{
-            return uid
+        if let uid = GIDSignIn.sharedInstance()?.currentUser?.userID{
+            print("Accesso con google \(uid)")
+            return String(uid)
         }
         if let uid = AccessToken.current?.userID{
-            return uid
+            print("Accesso con facebook \(uid)")
+            return String(uid)
         }
         return "uid"
     }
