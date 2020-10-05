@@ -215,8 +215,8 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
             
             DispatchQueue.main.async {
                 let toPost = selectedTrack.getTrackDescription()
-                let thisUserRef = DBRef.child("users/\(AuthManager().getCurrentUserID())").child(getTodayDateDay()).child(getTodayDateHourMinute()).childByAutoId()
-                thisUserRef.setValue(toPost)
+                let thisUserRef = DBRef.child(AuthManager().getCurrentUserID()).child(getTodayDateDay()).child(getTodayDateHourMinute()).childByAutoId()
+                thisUserRef.updateChildValues(toPost)
                 
                 self.performSegue(withIdentifier: "showPlayer", sender: selectedTrack)
                 //self.tabBarController?.selectedIndex = 4

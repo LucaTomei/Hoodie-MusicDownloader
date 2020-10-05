@@ -19,5 +19,4 @@ target 'Hoodie' do
   # Facebook Signin
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
-
 end

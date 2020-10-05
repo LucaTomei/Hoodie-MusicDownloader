@@ -17,6 +17,7 @@ import FBSDKCoreKit
 
 var DBRef:DatabaseReference!
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -46,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // Firebase Realtime DB
-        DBRef = Database.database().reference().child("hoodie")
+        DBRef = Database.database().reference().child("users")
         return true
     }
     

@@ -61,7 +61,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let user = GIDSignIn.sharedInstance()?.currentUser {
             // User signed in
             print("User signed in: \(user)")
-            DBRef.child("users/").setValue(AuthManager().getCurrentUserID())
             goToMainView(message: "")
         } else {
             // User signed out
@@ -97,7 +96,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     print("User cancelled login")
                 case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                     print("Logged in")
-                    DBRef.child("users/").setValue(AuthManager().getCurrentUserID())
                     self.goToMainView(message: "")
                 }
             }
@@ -174,7 +172,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else {
                 message = "Login Completed"
                 // add database reference (DBRef.)
-                DBRef.child("users/").setValue(AuthManager().getCurrentUserID())
                 self.goToMainView(message: message)
             }
         }
@@ -188,6 +185,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func goToMainView(message:String){
         //MyFileManager().clearDiskCache()
+        let current_userID = AuthManager().getCurrentUserID()
+        DBRef.updateChildValues(["\(current_userID)":""])
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "showMain", sender: self)
         }

@@ -118,8 +118,8 @@ class TrendingViewController: UIViewController {
                         }
                     }
                     let toPost = item.getTrackDescription()
-                    let thisUserRef = DBRef.child("users/\(AuthManager().getCurrentUserID())").child(getTodayDateDay()).child(getTodayDateHourMinute()).childByAutoId()
-                    thisUserRef.setValue(toPost)
+                    let thisUserRef = DBRef.child(AuthManager().getCurrentUserID()).child(getTodayDateDay()).child(getTodayDateHourMinute()).childByAutoId()
+                    thisUserRef.updateChildValues(toPost)
                     if i == 10{break}   // Limit only 10 tracks
                 }
             }
@@ -191,8 +191,8 @@ extension TrendingViewController: UICollectionViewDataSource {
                     MusicDownloader().downloadTrack(url: downloadableTrackLink, trackName: downloadableTrackName) {}
                    
                     let toPost = playlist.tracks.data[indexPath.row].getTrackDescription()
-                    let thisUserRef = DBRef.child("users/\(AuthManager().getCurrentUserID())").child(getTodayDateDay()).child(getTodayDateHourMinute()).childByAutoId()
-                    thisUserRef.setValue(toPost)
+                    let thisUserRef = DBRef.child(AuthManager().getCurrentUserID()).child(getTodayDateDay()).child(getTodayDateHourMinute()).childByAutoId()
+                    thisUserRef.updateChildValues(toPost)
                 }
             }
             
@@ -296,8 +296,8 @@ extension TrendingViewController: UITableViewDataSource {
                     MusicDownloader().downloadTrack(url: downloadableTrackLink, trackName: downloadableTrackName) {
                     }
                     let toPost = playlist.tracks.data[selectedButton.tag].getTrackDescription()
-                    let thisUserRef = DBRef.child("users/\(AuthManager().getCurrentUserID())").child(getTodayDateDay()).child(getTodayDateHourMinute()).childByAutoId()
-                    thisUserRef.setValue(toPost)
+                    let thisUserRef = DBRef.child(AuthManager().getCurrentUserID()).child(getTodayDateDay()).child(getTodayDateHourMinute()).childByAutoId()
+                    thisUserRef.updateChildValues(toPost)
                 }
             }
             }
