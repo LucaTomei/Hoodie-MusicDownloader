@@ -1,0 +1,22 @@
+platform :ios, '14.0'
+
+target 'Hoodie' do
+  use_frameworks!
+
+  
+  pod 'Firebase'
+  pod 'FirebaseDatabase'
+  pod 'FirebaseAuth'
+  pod 'FirebaseStorage'
+
+
+  pod 'FCAlertView'
+  pod 'SwiftMessages'
+
+  # Google Signin
+  pod 'GoogleSignIn'
+
+  # Facebook Signin
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+end

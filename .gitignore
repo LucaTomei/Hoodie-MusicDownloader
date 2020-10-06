@@ -30,3 +30,8 @@ Hoodie_src/Backup[ ]of[ ]*.numbers/
 
 # Cocoapods
 Hoodie_src/Pods/
+Hoodie_src/Podfile.lock
+
+# Copy Files
+Report/Copy
+Report/Images

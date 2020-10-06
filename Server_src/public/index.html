@@ -1,0 +1,148 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-controller="mainController" ng-app="musicdownloader">
+
+<head>
+  <!-- META -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+  <title>Music Downloader</title>
+
+  <!-- Compiled and minified CSS -->
+
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <!-- SPELLS -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.js"></script><!-- load angular -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.3/howler.js"></script>
+  <script src="core.js"></script>
+
+
+
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+
+<body ng-app="scotchTodo" class='flex flex-col min-h-screen'> 
+  <div class="flex-1 bg-gray-300">
+
+    <!-- HEADER AND TODO COUNT -->
+    <div class="text-center">
+      <h1 class="text-5xl font-bold">MusicDownloader</h1>
+
+      <div ng-if="!arlSubmitted">
+      </div>
+    </div>
+
+    <!-- FORM TO CREATE TODOS -->
+    <div id="todo-form" class="">
+      <div class="text-center">
+        <form ng-if="!arlEntered">
+          <div class="form-group">
+
+            <!-- Arl cookie shown first -->
+            <input id="arlInput" type="text" class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 m-auto rounded-lg my-2 py-2 px-4 block w-3/4 md:w-1/4 appearance-none leading-normal" placeholder="arl cookie"
+              ng-model="formData.arl">
+          </div>
+
+          <!-- createStream() will send the arl cookie and deezer url to MusicDownloader -->
+          <button ng-if="!arlSubmitted" type="submit" class="bg-transparent hover:bg-blue-500 text-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" ng-click="submitArl()">Submit
+            arl</button>
+          <!-- Preloader for submitting arl -->
+          <div ng-if="arlSubmitted">
+            <p><i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Connecting to deezer api...</p>
+          </div>
+
+
+        </form>
+
+      </div>
+      <div ng-if="arlEntered" class="text-center">
+        <p>Connected to the deezer service!</p>
+
+        <form>
+          <div class="form-group">
+            <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+            <input id="searchForm" type="text" ng-change="formData.searchTerm ? createSearch(formData.searchTerm) : return" class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 m-auto rounded-lg my-2 py-2 px-4 block w-3/4 md:w-1/4 appearance-none leading-normal"
+              placeholder="Enter search term" ng-model="formData.searchTerm">
+          </div>
+
+          <!-- createStream() will send the arl cookie and deezer url to MusicDownloader -->
+          <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" ng-click="createSearch(formData.searchTerm)">Search</button>
+
+        </form>
+
+
+      <div ng-if="formData.searchTerm" class="p-4 text-center">
+          <table class="m-auto">
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Artist</th>
+              </tr>
+              <tr class="hover:bg-gray-200" ng-click="formData.deezer_url=search.link;createStream();" ng-repeat="search in searchData">
+                <td class="md:p-4"><img class="" src={{search.album.cover_small}} alt=""></td>
+                <td class="md:p-4">{{search.title}}</td>
+                <td class="md:p-4">{{search.artist.name}}</td>
+              </tr>
+            </table> 
+      </div>
+
+      
+      <div ng-if="deezerUrlSubmitted">
+          <p><i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Downloading song...</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="bg-gray-900 text-white">
+
+
+    <div id="playSong" ng-if="arlEntered" class="flex text-center flex-col-reverse md:flex-row justify-around w-full md:w-1/2 m-auto my-2 border-gray-300">
+      <!-- Volume slider  -->
+
+
+        
+        <div id="seekWrapper" class="flex-initial">
+          <p class="" id="songTime"></p>
+        </div>
+
+        <div class="flex-initial flex-col text-center">
+          
+          <div class="flex-row justify-between">
+              <i class="fa fa-step-backward fa-2x px-4" aria-hidden="true"></i>
+              <i ng-click="sound.play();currentSong.paused = false" ng-if="currentSong.paused" class="fa fa-play fa-2x" aria-hidden="true"></i>
+              <i ng-click="sound.pause(); currentSong.paused = true" ng-if="!currentSong.paused" class="fa fa-pause fa-2x" aria-hidden="true"></i>
+              <i class="fa fa-step-forward fa-2x px-4" aria-hidden="true"></i>
+          </div>
+
+
+          <p>{{currentSong.apiData.title_short}}</p>
+          <p>{{currentSong.apiData.artist.name}}</p>
+  
+        </div>
+
+        <div class="flex-initial">
+          <p class="">Volume</p>
+          <input ng-model="vol" ng-change="updateVolume()" type="range" id="volume" value="100" min="0"
+            max="100" />
+        </div>
+
+
+
+
+    </div>
+  </footer>
+
+</body>
+
+</html>

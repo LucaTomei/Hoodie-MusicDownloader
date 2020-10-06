@@ -1,0 +1,47 @@
+{
+    "name": "MusicDownloader",
+    "version": "1.20.0",
+    "description": "A streaming music downloader written in NodeJS.",
+    "author": "MusicDownloaderDev",
+    "license": "CC-BY-NC-4.0",
+    "private": false,
+    "main": "MusicDownloader.js",
+    "bin": "MusicDownloader.js",
+    "scripts": {
+        "start": "node MusicDownloader.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://git.fuwafuwa.moe/MusicDownloaderDev/MusicDownloader.git"
+    },
+    "engines": {
+        "node": ">=9.0.0"
+    },
+    "dependencies": {
+        "angular": "^1.7.9",
+        "axios": "^0.19.1",
+        "bluebird": "^3.7.2",
+        "body-parser": "^1.19.0",
+        "cache-manager": "^2.10.0",
+        "chalk": "^3.0.0",
+        "command-line-args": "^5.1.1",
+        "command-line-usage": "^6.1.0",
+        "cookie-parser": "^1.4.4",
+        "crypto-random-string": "^3.1.0",
+        "express": "^4.17.1",
+        "inquirer": "^7.0.1",
+        "jsonfile": "^5.0.0",
+        "method-override": "^3.0.0",
+        "morgan": "^1.9.1",
+        "multer": "^1.4.2",
+        "openurl": "^1.1.1",
+        "ora": "^4.0.3",
+        "request": "^2.88.0",
+        "request-plus": "^2.0.0",
+        "sanitize-filename": "^1.6.3",
+        "winston": "^3.2.1"
+    },
+    "devDependencies": {
+        "pkg": "^4.4.2"
+    }
+}
