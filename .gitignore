@@ -1,40 +1,32 @@
 # Mac OS X Finder
 .DS_Store
 
-# Private Keys
-*.pem
-
 # Xcode legacy
-*.mode1
-*.mode1v3
-*.mode2v3
-*.perspective
-*.perspectivev3
-*.pbxuser
+Hoodie_src/*.mode1
+Hoodie_src/*.mode1v3
+Hoodie_src/*.mode2v3
+Hoodie_src/*.perspective
+Hoodie_src/*.perspectivev3
+Hoodie_src/*.pbxuser
 
 # Xcode
-xcuserdata/
-project.xcworkspace/
-DerivedData/
+Hoodie_src/xcuserdata/
+Hoodie_src/project.xcworkspace/
+Hoodie_src/DerivedData/
 
 # build products
-build/
-*.[oa]
-
-# repositories
-.hg
-.svn
-CVS
+Hoodie_src/build/
+Hoodie_src/*.[oa]
 
 # automatic backup files
-*~.nib
-*.swp
-*~
-*(Autosaved).rtfd/
-Backup[ ]of[ ]*.pages/
-Backup[ ]of[ ]*.key/
-Backup[ ]of[ ]*.numbers/
+Hoodie_src/*~.nib
+Hoodie_src/*.swp
+Hoodie_src/*~
+Hoodie_src/*(Autosaved).rtfd/
+Hoodie_src/Backup[ ]of[ ]*.pages/
+Hoodie_src/Backup[ ]of[ ]*.key/
+Hoodie_src/Backup[ ]of[ ]*.numbers/
 
 
 # Cocoapods
-Pods/
+Hoodie_src/Pods/
