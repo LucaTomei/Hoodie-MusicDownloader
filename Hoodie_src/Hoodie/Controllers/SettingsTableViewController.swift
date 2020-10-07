@@ -41,7 +41,12 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         daniloImageView.setRounded()
         giovanniImageView.setRounded()
         
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
     }
+    
+    
+    
     
     func setUpNavBar(){
         //For title in navigation bar
@@ -189,10 +194,6 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         controller.dismiss(animated: true)
     }
     
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        
-    }
 }
 
 

@@ -20,12 +20,26 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
     var ContentShowed:[music] = []
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        ContentShowed = myfilemanager_obj.getSongsInDocument()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+    }
+    
+    @objc func loadList(notification: NSNotification){
+        //load data here
+        print("Eseguo")
         self.thisView.reloadData()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("Appare")
+        super.viewWillAppear(true)
+        ContentShowed = myfilemanager_obj.getSongsInDocument()
+        self.thisView.reloadData()
+        
+    }
     
     
     

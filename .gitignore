@@ -35,3 +35,6 @@ Hoodie_src/Podfile.lock
 # Copy Files
 Report/Copy
 Report/Images
+
+# Node Modules
+Server_src/node_modules
