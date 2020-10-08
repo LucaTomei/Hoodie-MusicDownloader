@@ -17,6 +17,22 @@ class MusicFile {
 }
 
 class MyFileManager {
+    
+    func deleteSong(track:music){
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        do {
+            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+            var songs:[music] = []
+            for file in fileURLs{
+                let mp3Details = getMP3Details(mp3_file: file)
+                if mp3Details.0 == track.trackName && mp3Details.1 == track.artistName{
+                    try? fileManager.removeItem(at: file)
+                }
+            }
+        } catch {}
+    }
+    
     func getFilesInDocument() -> [URL]{
         
         let fileManager = FileManager.default

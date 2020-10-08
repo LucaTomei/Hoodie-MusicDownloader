@@ -40,9 +40,6 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         myImageView.setRounded()
         daniloImageView.setRounded()
         giovanniImageView.setRounded()
-        
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
     }
     
     
@@ -141,7 +138,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         displayAlertButton(viewController: self, title: "Clear Data Cache", body: "Do You Want to Erase all Data?",buttonTitle: "Delete 🎵") {
             beautifulSuccessAlert(viewController: self, title: "Data has been cleared", subtitle: nil, customImage: UIImage(named: "AppLogo")!)
             self.myFileManager.clearDiskCache()
-            
+            MusicInLocal = self.myFileManager.getSongsInDocument()
         }
     }
     
@@ -192,6 +189,14 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("Dismiss")
+        
+    }
+    @IBAction func didPressDismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

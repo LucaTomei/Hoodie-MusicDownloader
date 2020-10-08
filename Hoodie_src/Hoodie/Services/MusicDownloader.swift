@@ -38,6 +38,7 @@ class MusicDownloader{
                         try FileManager.default.moveItem(at: location, to: destinationUrl)
                         print("File moved to documents folder")
                         MusicInLocal = fileManager.getSongsInDocument()
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataNotif"), object: nil)
                         completion()
                     } catch {
                         print(error)
