@@ -48,6 +48,7 @@ class MyFileManager {
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         do {
             let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+            
             var songs:[music] = []
             for file in fileURLs{
                 if isPlayable(audioURL: file){
@@ -60,6 +61,7 @@ class MyFileManager {
             return songs
         } catch {return [] }
     }
+    
     
     // Check if song is playable
     func isPlayable(audioURL:URL) -> Bool{

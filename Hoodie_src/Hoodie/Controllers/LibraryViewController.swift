@@ -97,13 +97,6 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
         pv.messageFont  = UIFont(name: "HelveticaNeue", size: 14)!
         pv.messageColor = applicationTintColor
 
-//        // Customize the container view appearance
-//        let pcv = PopupDialogContainerView.appearance()
-//        pcv.backgroundColor = UIColor(red:0.23, green:0.23, blue:0.27, alpha:1.00)
-//        pcv.cornerRadius    = 2
-//        pcv.shadowEnabled   = true
-//        pcv.shadowColor     = .black
-
         // Customize overlay appearance
         let ov = PopupDialogOverlayView.appearance()
         ov.blurEnabled     = true
@@ -167,10 +160,13 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
             if let MusicPlayerVC = segue.destination as? ShowMusicViewController{
                 let track = sender as! music
                 let this_idx = fromTitleArtistToIdx(title: track.trackName!, artist: track.artistName!)
+                if this_idx != -1{
+                    // Errore per mp3 senza descrizione artworks
+                    MusicPlayerVC.SongPlaying = MusicInLocal[this_idx]
+                    MusicPlayerVC.Songs = MusicInLocal
+                    MusicPlayerVC.launchedFromLibrary = true
+                }
                 
-                MusicPlayerVC.SongPlaying = MusicInLocal[this_idx]
-                MusicPlayerVC.Songs = MusicInLocal
-                MusicPlayerVC.launchedFromLibrary = true
             }
         }
     }

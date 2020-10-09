@@ -48,6 +48,18 @@ func fromTitleArtistToIdx(title:String, artist:String) -> Int{
     return -1
 }
 
+func fromFilenameToIDX(FileURL:URL) -> Int{
+    let filesInDocument = fileManager.getFilesInDocument()
+    var i = 0
+    for song in filesInDocument{
+        if song.absoluteString == FileURL.absoluteString{
+            return i
+        }
+        i = i+1
+    }
+    return -1
+}
+
 func fromSongUrlToImage(mp3_file:URL) -> UIImage{
     let fileManager = MyFileManager()
     return fileManager.getMP3Details(mp3_file: mp3_file).2
