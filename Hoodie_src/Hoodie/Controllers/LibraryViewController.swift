@@ -68,12 +68,6 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
         cell.trackName.text = this_cell.trackName
         
         
-        
-//        if this_cell.musicImage != UIImage(){
-//            cell.icon.image = this_cell.
-//            //cell.trackIcon.removeFromSuperview()
-//            cell.trackIcon = nil
-//        }
         let this_image = fromSongUrlToImage(mp3_file: this_cell.getFileURL()!)
         if this_image != UIImage(){
             cell.icon.image = this_image
