@@ -11,6 +11,8 @@ import UIKit
 
 import SwiftMessages
 import FCAlertView
+import PopupDialog
+
 
 let applicationTintColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
 
@@ -108,3 +110,5 @@ func getTodayDateHourMinute() -> String{
     let dateString = dateFormatter.string(from: date)
     return dateString
 }
+
+

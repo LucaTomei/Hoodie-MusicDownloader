@@ -50,16 +50,27 @@ class MyFileManager {
             let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
             var songs:[music] = []
             for file in fileURLs{
-                let mp3Details = getMP3Details(mp3_file: file)
-                
-                let thisSong = music(trackName: mp3Details.0, artistName: mp3Details.1)
-                songs.append(thisSong)
+                if isPlayable(audioURL: file){
+                    let mp3Details = getMP3Details(mp3_file: file)
+                    
+                    let thisSong = music(trackName: mp3Details.0, artistName: mp3Details.1)
+                    songs.append(thisSong)
+                }
             }
             return songs
         } catch {return [] }
     }
     
-    
+    // Check if song is playable
+    func isPlayable(audioURL:URL) -> Bool{
+        var audioFile: AudioFileID?
+        let status = AudioFileOpenURL(audioURL as CFURL, .readPermission, 0, &audioFile)
+        if status != noErr{
+            return false
+        }
+        try? AudioFileClose(audioFile!)
+        return true
+    }
     
     func getMP3Details(mp3_file:URL) ->(String, String, UIImage) {
         var albumImage:UIImage = UIImage()

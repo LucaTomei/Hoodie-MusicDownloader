@@ -47,6 +47,7 @@ class ShowMusicViewController: UIViewController {
     
     var launchedFromLibrary = false
     
+    var audioLevel : Float = 0.0
     
     
     
@@ -265,6 +266,8 @@ class ShowMusicViewController: UIViewController {
     
     override func viewDidLoad() {
         set_colors()
+        
+        
         self.Songs = MyFileManager().getSongsInDocument()
         
         if SongPlaying != nil{
@@ -312,6 +315,10 @@ class ShowMusicViewController: UIViewController {
             }
         }
     }
+    
+    
+    
+    
     
     func setupRemoteTransportControls() {
         // Get the shared MPRemoteCommandCenter
@@ -377,3 +384,5 @@ class ShowMusicViewController: UIViewController {
     }
 
 }
+
+

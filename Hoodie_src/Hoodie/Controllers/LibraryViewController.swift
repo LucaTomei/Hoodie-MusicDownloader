@@ -1,13 +1,12 @@
 //
 //  LibraryViewController.swift
 //  Hoodie
-//
 //  Created by Luca Tomei on 04/09/2020.
 //  Copyright © 2020 Mishka TBC. All rights reserved.
 //
 
 import UIKit
-
+import PopupDialog
 class LibraryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     
@@ -27,10 +26,6 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
         super.viewDidLoad()
         
         
-        // Long pressure
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(sender:)))
-        self.view.addGestureRecognizer(longPressRecognizer)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(shouldReload),name:NSNotification.Name(rawValue: "newDataNotif"), object: nil)
     }
     
@@ -41,25 +36,6 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
-    
-    @objc func longPressed(sender: UILongPressGestureRecognizer) {
-
-        if sender.state == UIGestureRecognizer.State.began {
-
-            let touchPoint = sender.location(in: self.thisView)
-            if let indexPath = self.thisView.indexPathForItem(at: touchPoint) {
-
-                print("Long pressed row: \(indexPath.row)")
-                displayAlertButton(viewController: self, title: "Delete", body: "Do you want to delete \(MusicInLocal[indexPath.row].trackName?.description)" , buttonTitle: "Yes") {
-                    //delete song
-                    self.myfilemanager_obj.deleteSong(track: MusicInLocal[indexPath.row])
-                    MusicInLocal = self.myfilemanager_obj.getSongsInDocument()
-                    
-                    self.thisView.reloadData()
-                }
-            }
-        }
-    }
     
     
     
@@ -111,22 +87,88 @@ class LibraryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
-        print("You selected cell #\(indexPath.item)!")
         let selectedTrack = MusicInLocal[indexPath.row]
         
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "showMusicFromLibrary", sender: selectedTrack)
-            self.tabBarController?.selectedIndex = 4
-        }
+        self.showActionsPopup(selectedTrack: selectedTrack)
+        
+        
     }
     
     
+    func showActionsPopup(selectedTrack:music){
+        // Customize dialog appearance
+        let pv = PopupDialogDefaultView.appearance()
+        pv.titleFont    = UIFont(name: "HelveticaNeue-Light", size: 16)!
+        pv.titleColor   = .black
+        pv.messageFont  = UIFont(name: "HelveticaNeue", size: 14)!
+        pv.messageColor = applicationTintColor
+
+//        // Customize the container view appearance
+//        let pcv = PopupDialogContainerView.appearance()
+//        pcv.backgroundColor = UIColor(red:0.23, green:0.23, blue:0.27, alpha:1.00)
+//        pcv.cornerRadius    = 2
+//        pcv.shadowEnabled   = true
+//        pcv.shadowColor     = .black
+
+        // Customize overlay appearance
+        let ov = PopupDialogOverlayView.appearance()
+        ov.blurEnabled     = true
+        ov.blurRadius      = 30
+        ov.liveBlurEnabled = true
+        ov.opacity         = 0.7
+        ov.color           = .black
+
+        // Customize default button appearance
+        let db = DefaultButton.appearance()
+        db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 14)!
+        db.titleColor     = .white
+        db.buttonColor    = applicationTintColor
+        db.separatorColor = UIColor(red:0.20, green:0.20, blue:0.25, alpha:1.00)
+
+        // Customize cancel button appearance
+        let cb = CancelButton.appearance()
+        cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 14)!
+        cb.titleColor     = UIColor(white: 0.8, alpha: 1)
+        cb.buttonColor    = applicationTintColor
+        cb.separatorColor = UIColor(red:0.20, green:0.20, blue:0.25, alpha:1.00)
+        
+        
+        
+        // Prepare the popup assets
+        let title = "🦄"
+        let message = "What do you want to do with \"\(selectedTrack.trackName!.description)\" by \"\(selectedTrack.artistName!.description)\"?"
+        let image = UIImage(named: "pexels-photo-103290")
+
+        // Create the dialog
+        let popup = PopupDialog(title: title, message: message, image: image)
+        
+        
+        // Create buttons
+        let buttonOne = DefaultButton(title: "🎵 Play Song 🎵") {
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "showMusicFromLibrary", sender: selectedTrack)
+                self.tabBarController?.selectedIndex = 4
+            }
+        }
+        let buttonTwo = DefaultButton(title: "🗑️ Delete Song 🗑️") {
+            DispatchQueue.main.async {
+                self.myfilemanager_obj.deleteSong(track: selectedTrack)
+                MusicInLocal = self.myfilemanager_obj.getSongsInDocument()
+                                    
+                self.thisView.reloadData()
+            }
+        }
+        let buttonThree = CancelButton(title: "✖️ Cancel ✖️") {}
+        
+        popup.addButtons([buttonOne, buttonTwo, buttonThree])
+        
+        self.present(popup, animated: true, completion: nil)
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMusicFromLibrary"{
             // preparo il dato
-            let vc = segue.destination as! ShowMusicViewController // la casto alla classe di arrivo
             
             if let MusicPlayerVC = segue.destination as? ShowMusicViewController{
                 let track = sender as! music

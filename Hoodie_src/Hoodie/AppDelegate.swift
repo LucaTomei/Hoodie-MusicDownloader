@@ -17,12 +17,16 @@ import FBSDKCoreKit
 
 var DBRef:DatabaseReference!
 
+var audioSession:AVAudioSession!
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var SongPlaying : music!
     let player = AVPlayerController.shared.player
+    
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         
@@ -31,7 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Bold", size: 10)!], for: .selected)
                 FirebaseApp.configure()
         
-        try? AVAudioSession.sharedInstance().setCategory(.playback)
+        audioSession = AVAudioSession.sharedInstance()
+        try? audioSession.setCategory(.playback)
         
         // Sleep for showing launchscreen storyboard
         //Thread.sleep(forTimeInterval: 3.0)

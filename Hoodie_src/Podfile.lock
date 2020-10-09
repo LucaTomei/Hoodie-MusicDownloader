@@ -4,6 +4,7 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
+  - DynamicBlurView (4.1.0)
   - FBSDKCoreKit (8.0.0):
     - FBSDKCoreKit/Basics (= 8.0.0)
     - FBSDKCoreKit/Core (= 8.0.0)
@@ -101,6 +102,8 @@ PODS:
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
+  - PopupDialog (1.1.1):
+    - DynamicBlurView (~> 4.0)
   - PromisesObjC (1.2.10)
   - SwiftMessages (8.0.2):
     - SwiftMessages/App (= 8.0.2)
@@ -115,11 +118,13 @@ DEPENDENCIES:
   - FirebaseDatabase
   - FirebaseStorage
   - GoogleSignIn
+  - PopupDialog
   - SwiftMessages
 
 SPEC REPOS:
   trunk:
     - AppAuth
+    - DynamicBlurView
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FCAlertView
@@ -139,11 +144,13 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - PopupDialog
     - PromisesObjC
     - SwiftMessages
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
   FBSDKCoreKit: 9d27fe97a2fa2abe5eeefea8240e837623ab88e0
   FBSDKLoginKit: 2cbaf5405379731b22f2ebc224f7c30f62378171
   FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
@@ -163,9 +170,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   SwiftMessages: 633304165351b8e3dcbb81a71f8efcd86f9c1669
 
-PODFILE CHECKSUM: 605eeadf1364e8339ee50c252fe8ba3edd1b1ffe
+PODFILE CHECKSUM: aacbbb8df1816ca11c8ab4c87848fef1e48aaf8c
 
 COCOAPODS: 1.9.3

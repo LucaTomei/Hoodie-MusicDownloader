@@ -9,9 +9,10 @@ target 'Hoodie' do
   pod 'FirebaseAuth'
   pod 'FirebaseStorage'
 
-
+  # Alerts and popup
   pod 'FCAlertView'
   pod 'SwiftMessages'
+  pod 'PopupDialog'
 
   # Google Signin
   pod 'GoogleSignIn'
