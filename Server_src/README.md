@@ -12,8 +12,7 @@ npm run start
 
 ### API Documentation
 
-Endpoints for viewing and manipulating the Accounts that the Authenticated User
-has permissions to access.
+Endpoints for viewing and manipulating Deezer Songs are:
 
 * [Post Deezer ARL]() : `POST /api/arl/`
 * [Search Song]() : `GET api/search/song_name`
