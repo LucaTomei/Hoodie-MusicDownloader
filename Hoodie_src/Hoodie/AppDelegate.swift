@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Thread.sleep(forTimeInterval: 3.0)
         
         
-//        // Google Signin
+        // Google Signin
         GIDSignIn.sharedInstance().clientID = "561471659184-h7t0meenl64ktlq7fhshnsd2j11ge64c.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
